@@ -37,7 +37,7 @@
 
 %% Reference style: select one 
 %% for APA = Harvard style = authoryear -> (Einstein, 1905) use:
-\usepackage[style=authoryear,bibstyle=authoryear,backend=biber,natbib=true,maxnames=99,maxcitenames=2,uniquelist=minyear,giveninits=true,uniquename=mininit]{biblatex}
+\usepackage[style=authoryear,bibstyle=authoryear,backend=biber,natbib=true,maxnames=99,maxcitenames=2,uniquelist=minyear,giveninits=true,uniquename=mininit,urldate=long]{biblatex}
 %% for numeric = Vancouver style -> [1] use:
 %\usepackage[style=numeric,bibstyle=numeric,backend=biber,natbib=true,maxbibnames=99,giveninits=true,uniquename=init]{biblatex}
 %% for alpahbetic -> [Ein05] use:
@@ -87,14 +87,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Set up personal information for the title page and the abstract form.
 %% Replace parameters with your information.
-\title{Title}
+\title{Accessibility Evaluation Tools on Steroids}
 
-\author{Firstname Lastname}
+\author{Sebastian Sergelius}
 \date{\today}
 
 % Set supervisors, use the titles according to the thesis language
 % in English Prof. or Dr., or in Finnish toht. or tri or FT, TkT, Ph.D. or in Swedish... 
-\supervisors{Prof.~D.U.~Mind, Dr.~O.~Why}
+\supervisors{Prof. Tomi Männistö}
 
 \keywords{algorithms, data structures}
 \additionalinformation{\translate{\track}}
@@ -177,10 +177,11 @@
 %% which simply inputs the content of the given file like it was copy&pasted there manually.
 
 \include{Ch.10_Introduction}
-\include{Ch.20_Methods}
-\include{Ch.30_Results}
-\include{Ch.40_Discussion}
-\include{Ch.50_Conclusions}
+\include{Ch.20_Background}
+\include{Ch.30_Methods}
+\include{Ch.40_Results}
+\include{Ch.50_Discussion}
+\include{Ch.60_Conclusions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\cleardoublepage                          %fixes the position of bibliography in bookmarks
@@ -195,9 +196,9 @@
 %% A sample Appendix
 \include{Ch.90_Appendix_1}
 %% another appendix
-\include{instructions/instructions_english}
+%% \include{instructions/instructions_english}
 %% yet another appendix
-\include{instructions/instructions_finnish}
+%% \include{instructions/instructions_finnish}
 
 % BSc instructions
 %\include{instructions/bsc_finnish_contents}
