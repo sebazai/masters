@@ -1,0 +1,68 @@
+\chapter{Accessibility\label{accessibility}}
+
+Web accessibility aims to ensure an equitable online experience for users of diverse abilities. According to World Health Organization, an estimate of over 1.3 billion people worldwide face some form of disability \citep{whodisability}. Blindness, vision impairment, deafness and hearing loss are some examples that affect the web experience of said persons. The significance of web accessibility is increasingly apparent. This chapter delve into web accessibility. In section 2.1....
+
+\section{Definition}
+
+Web accessibility strives for an equal opportunity for persons with any sort of impairment to interact with web services on any device. In web accessibility the goal is to implement a web page in a specific way so that assistive technologies can help to remove the barrier for accessing the information provided. Web designers, developers and content creators implement web accessibility. Accessibility is built upon these three topics, technical implementation, ease of use and comprehensibility of content \citep{webaccessibilitydefinition}. Technical implementation provides functionality for assistive technologies in the web source code based on web standards. Ease of use involves having a user experience with clearly structured frame for navigation and content placement. Comprehensibility of content is the structure of the content itself, that is the content is written in short paragraph and plain language. 
+
+In web development the technical implementation is mainly done by web developers by following the HTML and CSS standard, ease of use is web designers responsibility and page content itself is written and structured by content creators. However, there are overlap in responsibilities of implementing accessibility, as creation of web pages has become easier due to website builders and different web frameworks. In the EU, the implementation details for web accessibility have been standardized based on existing guidelines.
+
+\section{Legislation}
+
+The emergence of directives and legislative measures plays a role in the goal to develop best practices for web accessibility \citep{eudirective2016}. The European Union (EU) Directive 2016/2102 was adopted in 2016 to ratify part of the United Nations Convention on the Rights of Persons with Disabilities (UN CRPD). The Directive enforces EU Member States to ensure that their public sector organizations implement and monitor accessibility on their web pages and mobile applications. The directive gave a clear timeline for the member states. At latest of September 2018 each member state should have transposed this directive into national legislation. Since September 2019 all new web sites must conform. All public sector websites had to comply after September 2020. In June 2021 all mobile applications had to conform and in December 2021 the monitoring and reporting started. 
+
+The EU Directive adopted in 2016 refers to the European Standard \textit{EN 301 549} that specifies the accessibility requirements for ICT products and services. In the first version of the Standard the guidelines and requirements were based on Web Content Accessibility Guidelines (WCAG) 2.0 provided by the World Wide Web Consortium \citep{wcagadoptioneurope}. During the same time as member states had to transpose this into a national law in 2018, the standard was changed to be a direct reference to the WCAG version 2.1 making the WCAG 2.1 the accessibility standard that member states should follow. There are three levels of accessibility, A being the lowest, AA and AAA being the highest. The directive requires the public sector to conform with AA level of the guidelines.
+
+Monitoring of accessibility in the public sector should be done every three years \citep{eudirectivemonitoring}. The first monitoring and accessibility report from member states to the EU commission was given in 2021. Next reports should be delivered in December 2024. This monitoring is divided into two categories, in-depth and simplified monitoring. Simplified monitoring only requires accessibility testing using accessibility evaluation tools and in-depth monitoring should be done by accessibility experts. 
+
+The European Accessibility Act (EAA) was adopted by the EU in 2019 to complement the 2016 directive and UN CRPD \citep{eudirective2019}. The EAA will bring similar requirements for private sector bodies starting from end of June 2025. However, currently there has been no decision made if \cite{eudirective2019} will use the same standard as \cite{eudirective2016}.
+
+
+\section{Guidelines}
+
+Web Content Accessibility Guidelines (WCAG) is created by accessibility specialists in a working group at the World Wide Web Consortium \citep{wcagoverview}. Version 2 was published in 2008. Version 2.1 came out in 2018 and is the version referenced in the European Standard. Version 2.2 was published and made a recommendation by W3C in October 2023. The consortium recommends always to use the latest version as they are backwards compatible. Therefore, in this thesis we will focus on version 2.2.
+
+The guidelines aim to ensure that digital content is accessible to a broad audience and adaptable to various forms, accommodating diverse sensory, physical, and cognitive abilities of individuals \citep{wcag22}. The WCAG document is written in a technology agnostic way. It is based on four principles: \textit{perceivable, operable, understandable, and robust}. In each principle, there are guidelines and under each guideline are success criteria. There are a total of 13 guidelines and 86 success criteria. In total there are three levels of accessibility; A being the lowest, AA, and AAA being the highest, see table \ref{table:wcag22}. Each success criterion is part of one level of accessibility. Version 2.2 remove one and add six new success criteria for public sector to implement when the EU standard is updated to reflect the changes. Success criterion 4.1.1 is made obsolete and the six added success criteria are: 2.4.11, 2.5.7, 2.5.8, 3.2.6, 3.3.7 and 3.3.8 as shown in table \ref{table:wcag22}. 
+
+\input{WCAG_table}
+
+Perceivable means that information and elements can be perceived by all users \citep{wcag22}. Non-textual content should have a textual representation, such as alternative text for images or textual description for prerecorded audio and video (guidelines 1.1 and 1.2). Adaptable guideline 1.3 describes that content is structured so that computer programs can convey the information to users regardless of device screen size or orientation. Distinguishable main purpose is for users to be able to distinguish between foreground and background information.
+
+Operable principle ensures that the page can be used with different input peripherals, such as keyboard, mouse or touch screen \cite{wcag22}. Keyboard accessible guideline 2.1 defines that same functionality should be available by only using the keyboard. Guideline 2.2 requires content, that normally is visible for a while, to be available and controllable by the user. Seizure and physical reactions (2.3) guideline asks designers not to create flashing content and limits the flashing of a page to three. Navigable (2.4) provides users information where they are on the page and quick access to relevant content. A known accessibility feature for navigating is the "Skip to content" link that is provided on pages for screen readers to quickly jump to the content block. The last guideline 2.5 is input modalities that guides developers to ensure functionality beyond keyboard input.
+
+Understandable principle is about the accessibility of the content. Readable (3.1) requires web developers to set language for the page. Predictable expects that there are no sudden changes on the page, such as requesting for help button would change position. Input assistance ensures that input elements have labels, the same information would not be asked twice from the user in the same session and that input requirements and errors are displayed correctly. 
+
+Robust requires the page to be created in such a way that it can be interpreted by assistive technologies now and in the future \citep{wcag22}. Compatible is the sole guideline defining that developers should apply roles and names for elements and that status messages can be read by assistive technologies without focusing on the element. Parsing was removed in version 2.2 as it has been addressed by other success criteria in the documents.
+
+The success criteria under the guidelines are written as testable statements \citep{wcag22}. WCAG also offers guidance and best practices for each success criteria by providing informative techniques for web content developers. The techniques are categorized as \textit{sufficient} and \textit{advisory}, where advisory techniques go beyond the requirements for the specific criterion. Common failures for conformance are also documented. The techniques describing sufficient conformance are more technical and contains examples on how to implement a success criterion with HTML and CSS techniques.
+
+% \section{Accessibility in web programming}
+
+% - Talk about what the guidelines means for a web developer perspective; use WCAG 2.2 "How to meet WCAG compliance" as reference
+
+% - Dive into some of the most basic accessibility, what it means
+
+\section{Accessibility evaluation}
+
+As web services undergo rapid development and continuous deployment, a continuous accessibility evaluation is crucial, mandated by both legislative organizations and end-users. The primary goal of assessing web accessibility is to promote digital inclusion by identifying and eliminating barriers, thereby expanding access to a wider audience. Multiple accessibility evaluation tools are available to help web content developers in ensuring inclusivity and conformance to accessibility standards.
+
+Accessibility evaluation tools should be used to check if a web page conforms to accessibility guidelines. Accessibility evaluators parses the HTML and CSS code of a web page and checks that the web page conforms to the accessibility standards. These tools are helpful for quick accessibility evaluation. However, human evaluation is always required to check for full conformance as these tools might produce misleading results \citep{wcagevaluationtools}. Therefore, accessibility evaluation tools should be used as assistive evaluators when examining the conformance of a web page.
+
+In a study conducted by \cite{govukaccessibility} they created a page with 143 accessibility issues. The study shows that a selection of free accessibility evaluation tools covers only up to 30 \% of 
+
+\subsection{Tools}
+
+- https://dl-acm-org.libproxy.helsinki.fi/doi/pdf/10.1145/3563137.3563148
+-> Unified reporting does not exist between EU Member states
+-> There's no standard on how to evaluate accessibility
+-> 
+
+- Monitoring with automated testing tools; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32018D1524
+
+\section{Manual / Beyond reach}
+
+
+\section{Use of AI}
+
+- Talk about LabelDroid
