@@ -2,29 +2,44 @@
 
 As web services undergo rapid development and continuous deployment, a continuous accessibility evaluation is crucial, mandated by both legislative organizations and end-users. The primary goal of assessing web accessibility is to promote digital inclusion by identifying and eliminating barriers, thereby expanding access to a wider audience. Multiple accessibility evaluation tools are available to help web content developers in ensuring inclusivity and conformance to accessibility standards.
 
-\section{Tools}
+\section{Tools and coverage}
 
 Accessibility evaluation tools (AET) should be used to check if a web page conforms to accessibility guidelines. Accessibility evaluators parses the HTML and CSS code of a web page and checks that the web page conforms to the accessibility standards. These tools are helpful for quick accessibility evaluation. However, human evaluation is always required to check for full conformance as these tools might produce misleading results \citep{wcagevaluationtools}. Therefore, accessibility evaluation tools should be used as assistive evaluators when examining the conformance of a web page.
 
-In a study conducted by \cite{govukaccessibilityresults} they created a page with 142 accessibility issues. This study shows that automatically these tools cover only around 30 \% of these issues \citep{govukaccessibilityresults}. Excluding the Nu HTML Checker, as it is not an evaluation tool, the lowest score was 17 \% by Google ADT and highest scoring tool was SortSite. 
+Automated accessibility evaluation tools cover only around 20 - 30 \% of all success criteria in the WCAG \citep{govukaccessibilityresults, webaimmillions, dequecoverage}. In a study conducted by \cite{govukaccessibilityresults} they created a page with 142 accessibility issues and analyzed this page with 12 different tools (Nu HTML Checker excluded, not exactly an AET). The lowest score was 17 \% by Google ADT and highest scoring tool was SortSite with 40 \%. However, one major developer and vendor of accessibility testing, Deque Systems, believes that the apprehension on the coverage should be based on real findings rather than which success criteria are covered \citep{dequecoverage}. Deque argues that up to 57 \% of accessibility issues can be found when considering that there are usually multiple violations for one success criterion on a page. From over 2000 in-depth accessibility evaluations they showed that in most cases automation finds more issues then manual review. Data in this study is based on A and AA level of accessibility when WCAG 2.1 was the recommendation from W3C. By removing the success criterion 4.1.1 Parsing, that is obsolete in WCAG 2.2, the total amount of found issues from these studies falls by 34 488 to 260 470. The success criterion 4.1.1 was one of the most detected by automation with a proportion of 90.28 \% being found automatically. The six type of issues encountered with a significantly high proportion found by automation are the following: 
 
-- Deque, axecore developer, 0 false positives, other viewpoint, see \cite{dequecoverage}.
-- False positives, false negatives, tool effectiveness (https://link-springer-com.libproxy.helsinki.fi/content/pdf/10.1007/s10209-004-0105-y.pdf)
+\begin{itemize}
+  \item 3.1.1 Language of page (91.81 \%, 1 995 issues)
+  \item 1.4.3 Contrast (Minimum) (83.11 \%, 73 733 issues)
+  \item 2.4.1 Bypass blocks (79 \%, 2 001 issues)
+  \item 1.1.1 Non-text context (67.57 \%, 16 014 issues)
+  \item 4.1.2 Name, role, value (54.42 \%, 26 276 issues)
+  \item 1.3.1 Info and relationship (45.17 \%, 16 432 issues)
+\end{itemize}
 
+These six success criteria accounts for up to 52 \% of all accessibility issues found by automation. Furthermore, by removing the obsolete success criterion the total amount of found issues by tools is 53 \%. However, this study does not account for the newly added success criteria in WCAG 2.2. Moreover, the only identified success criterion that axe-core has identified to be testable and not returning false positives is 2.5.8 Target size \citep{dequeaxe4_5}.
+
+- False positives (axe-core 0), false negatives, tool effectiveness (https://link-springer-com.libproxy.helsinki.fi/content/pdf/10.1007/s10209-004-0105-y.pdf)
+(https://dl-acm-org.libproxy.helsinki.fi/doi/abs/10.1145/3430263.3452436)
+
+- How tools are built nowadays, how false positives and those are addressed, how the ambigiousness and transparency has moved forward, refer to WCAG ACT (https://www.w3.org/WAI/standards-guidelines/act/)
 
 
 
 - https://dl-acm-org.libproxy.helsinki.fi/doi/pdf/10.1145/3563137.3563148
--> Unified reporting does not exist between EU Member states
--> There's no standard on how to evaluate accessibility
--> 
 
-- Monitoring with automated testing tools; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32018D1524
+-> Unified reporting does not exist between EU Member states
+
+-> There's no standard on how to evaluate accessibility (WCAG ACT)
+
 
 \section{Manual / Beyond reach}
 
+- Talk about which criteria needs to be manually addressed, also review those that are found by automation, are they relevant, as these are boolean, what about context?
 
 \section{Use of AI}
 
 - Talk about LabelDroid
+
 - Mention accessibility overlay tools; https://commission.europa.eu/resources-partners/europa-web-guide/design-content-and-development/accessibility/testing-early-and-regularly/accessibility-overlays_en, might use AI, has been seen to cause more harm.
+
