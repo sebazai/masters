@@ -1,6 +1,19 @@
-\chapter{Accessibility evaluation\label{accessibility_evaluation}}
+\chapter{Web accessibility evaluation\label{accessibility_evaluation}}
 
 As web services undergo rapid development and continuous deployment, a continuous accessibility evaluation is crucial, mandated by both legislative organizations and end-users. The primary goal of assessing web accessibility is to promote digital inclusion by identifying and eliminating barriers, thereby expanding access to a wider audience. Multiple accessibility evaluation tools are available to help web content developers in ensuring inclusivity and conformance to accessibility standards.
+
+\section{Methodologies}
+
+Web accessibility evaluation is a process of assessing and determining to which extent a website is accessible to people with disabilities \citep[Chapter~26.2]{webaccessibility}. The evaluation of web accessibility involves analyzing a website against established standards and guidelines. The process of web accessibility evaluation can be categorized into three categorize: automated testing, manual inspection and user testing.
+
+Automated testing is done by accessibility evaluation tools that are programmed to automatically parse and evaluate the source code of a web page based on guidelines \citep[Chapter~26.2]{webaccessibility}. 
+Adopting automated testing early ensures that potential accessibility issues are identified and addressed with immediate feedback during the development cycle. However, automated testing tools can only cover those guidelines that are assessable through machine-based analysis. 
+
+Manual inspection is required to ensure that a web page conforms to accessibility standards \citep[Chapter~26.2]{webaccessibility}. Conformance reviews is the most used methodology that involves evaluators opinion when checking if the website meets criteria based on a checklist, such as WCAG. \cite{comparative_accessibility_methods} introduced and compared his Barrier Walkthrough methodology where evaluation is done in a more systematic way taking into consider the context of the scenario and goal. For example a person with vision impairment, using a specific assistive technology trying to fill in a form. Results show that the Barrier Walkthough method is better at finding critical problems more accurately, but fails in finding all the accessibility problems \citep{comparative_accessibility_methods}. Nevertheless, manual inspection conducted by different evaluators may result in different outcome regardless of methodology used \citep{accessibility_evaluation_experts, 10.1145/1878803.1878813}. 
+
+User testing is based on empirical usability testing. This is the most reliable accessibility evaluation method involving actual users with disabilities performing tasks on a web page \citep[Chapter~26.2]{webaccessibility}. Reliability is the consistency of the outcome regardless of whom performed the test. However, user testing is slow and costly. In addition, it is complex to set up the testing session and to take into account a diverse range of users \citep{comparative_accessibility_methods}
+
+Multiple evaluation methodologies have been proposed combining the three categories described above. It is recommended to always use more than one tool, as the technical implementation of each tool might differ ending up in different results. Manual inspection and user testing should always be done to ensure conformance. However, there is no consensus on how to combine these methods for a comprehensive accessibility study \citep[Chapter~26.2.1]{webaccessibility}.
 
 \section{Tools and coverage}
 
@@ -19,8 +32,9 @@ Automated accessibility evaluation tools cover only around 20 - 30 \% of all suc
 
 These six success criteria accounts for up to 52 \% of all accessibility issues found by automation. Furthermore, by removing the obsolete success criterion the total amount of found issues by tools is 53 \%. However, this study does not account for the newly added success criteria in WCAG 2.2. Moreover, the only identified success criterion that axe-core has identified to be testable and not returning false positives is 2.5.8 Target size \citep{dequeaxe4_5}.
 
-- False positives (axe-core 0), false negatives, tool effectiveness (https://link-springer-com.libproxy.helsinki.fi/content/pdf/10.1007/s10209-004-0105-y.pdf)
-(https://dl-acm-org.libproxy.helsinki.fi/doi/abs/10.1145/3430263.3452436)
+Automated evaluation tools are compared and measured with how effective they are \citep{Brajnik2004}. Effectiveness of a tool can be measured with correctness and completeness. Correctness measures how tools report non-existing problems (false positives). Completeness measures how tools are not able to identify a problems that exist (false negative). Deques target is to ensure that the axe-core engine reports zero false positives to ensure that the results can be trusted \citep{dequecoverage}. 
+
+
 
 - How tools are built nowadays, how false positives and those are addressed, how the ambigiousness and transparency has moved forward, refer to WCAG ACT (https://www.w3.org/WAI/standards-guidelines/act/)
 
