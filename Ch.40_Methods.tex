@@ -1,10 +1,12 @@
-\chapter{Research methods\label{methods}}
+\chapter{Research approach\label{methods}}
 
-This thesis will use a qualitative method based on an iterative manner of the Design Science methodology \citep{designsciencemethodology, iterativedesignscience}. The main goal of this research is do a literature review to identify a problem in a specific context and attempt to create an artifact as a solution to found problem. The context of this thesis will be to research web accessibility evaluation tools and to identify how Generative AI could assist accessibility evaluators to resolve barriers on the web. 
+This chapter will describe the goal of this research and the methods used. 
 
-<Insert figure here from \cite{iterativedesignscience}>
+\section{Research goals}
 
-The research questions for the thesis are following:
+The goal of this research is to conduct a literature review to understand the current situation of web accessibility and how web accessibility is evaluated.
+
+The research questions for the thesis are the following:
 
 \begin{itemize}
     \item \textbf{RQ1.} What are the limitations of web accessibility evaluation tools in assessing compliance with Web Content Accessibility Guidelines (WCAG)?
@@ -12,13 +14,20 @@ The research questions for the thesis are following:
     \item \textbf{RQ3.} How could these features be incorporated in existing accessibility evaluation tools?
 \end{itemize}
 
-To identify current limitations for RQ1 a thorough literature review was conducted with focus on web accessibility from a legislative perspective in the EU.  Chapter \ref{accessibility} describes the progress done to ensure an accessible web. Based on findings from chapter \ref{accessibility} the following search string was used in the ACM Digital Library: "accessibility evaluation" OR "evaluation of tools" OR "comparing tools". Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. A total of 150 research articles were found. Found papers were selected based on their title and abstract. An inclusion criteria was used based on if either title or abstract mentioned comparing tools, the EU Directive or the WCAG guidelines. Exclusion criteria was used if the paper title or abstract had mentioned one of the following: specific disability, specific technology, mobile accessibility or the study was conducted in a country. A snowballing method was used to identify the most commonly referred papers which are also used in this thesis as references. Additionally, found researches were searched for to find relevant literature.
+Main goal of this thesis is to identify if there is potential in Generative AI when assessing accessibility of a web page. RQ1 is used to identify a relevant problem in the field of web accessibility evaluation. To answer RQ2 a Generative AI platform is chosen to test a solution based on a iterative manner where the prompt is iterated upon. RQ3... Might need to be dropped off, as this would require a comprehensive knowhow of e.g. an open-source accessibility evaluation tool and figure out if this could be incorporated.
 
+\section{Research methods}
 
+This thesis will use a qualitative method based on an iterative manner of the Design Science methodology \citep{designsciencemethodology, iterativedesignscience}. The main goal of this research is do a literature review to identify a problem in a specific context and attempt to create an artifact as a solution to found problem. The context of this thesis will be to research web accessibility evaluation tools and to identify how Generative AI could assist accessibility evaluators to resolve barriers on the web. 
 
+<Insert figure here from \cite{iterativedesignscience}>
 
+To identify current limitations for RQ1 a literature review was conducted with focus on web accessibility from a legislative perspective in the EU. Based on findings from chapter \ref{accessibility} the following search string was used in the ACM Digital Library: "accessibility evaluation" OR "evaluation of tools" OR "comparing tools". Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. 
 
+A total of 150 research articles were found in ACM Digital Library. Found papers were selected based on their title and abstract. An inclusion criteria was used based on if either title or abstract mentioned comparing tools, the EU Directive or the WCAG guidelines. Exclusion criteria was used if the paper title or abstract had mentioned one of the following: specific disability, specific technology, mobile accessibility or the study was conducted in a country. A snowballing method was used to identify the most commonly referred papers which are also used in this thesis as references. Additionally, found researches were searched for individually by name to find relevant literature.
 
-- Literature review chapter 4, get to know legislation from EU perspective, directives and memos in directive, read about guidelines -> EU Standard -> WCAG, explain accessibility and the accessibility guidelines in an understandable manner as short as possible with good literature (EU / State web pages)
+To answer RQ2, the details found in the literature review is used to identify limitations in current accessibility evaluation methodologies. Research goal is to find out if Generative AI could be prompted in a way to recognize accessibility issues in a standardized way using the ACT rules provided by W3C.
 
-- Literature review on accessibility evaluation, "accessibility evaluation tools" in google scholar, use ACM as main source, search "web accessibility" OR "accessibility evaluation" OR "evaluation of tools", filter by relevance and read papers, identify common themes and references, snowball method through recent papers to find the current themes and referred papers
+\section{Selected tools and scope}
+
+The Generative AI selected for this thesis is a Large Language Model (LLM) ChatGPT 3.5 by OpenAI. Selection criteria for ChatGPT is based on the popularity of the tool in research and the tool being free to use \citep{ouyang2023llm, white2023prompt}. In this thesis, ChatGPT will be used to test the .... success criterion, as it requires a manual evaluation from an accessibility expert based on context of the page. Additionally, the success criterion has ACT rules provided by the W3C that can be used as test cases for the LLM with a specific prompt.
