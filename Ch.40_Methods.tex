@@ -1,10 +1,10 @@
 \chapter{Research approach\label{methods}}
 
-This chapter will describe the goal of this research and the methods used. The scope of the analysis will be defined.
+This chapter will describe the research goal and the methods used. In addition, the selected tools and scope of the research is specified.
 
 \section{Research goals}
 
-The goal of this research is to conduct a literature review to understand the current situation of web accessibility and how web accessibility is evaluated. Based on findings of the literature review the secondary goal is to identify if there is potential in Generative AI when assessing accessibility of a web page.
+The objective of this research is to find answers to the research questions below. The research questions will help to understand the current situation of web accessibility and how web accessibility is evaluated. Based on findings of the literature review we can identify if there is potential in Generative AI when assessing accessibility of a web page. 
 
 The research questions for the thesis are the following:
 
@@ -13,25 +13,35 @@ The research questions for the thesis are the following:
     \item \textbf{RQ2.} How well does Generative AI assist to address these limitations?
 \end{itemize}
 
-RQ1 is used to identify a relevant problem in the field of web accessibility evaluation. To answer RQ2 a Generative AI platform is chosen to test a solution based on a iterative manner where the prompt is iterated upon. The prompt is the artefact of the study. 
-
-As the artefact is aimed to be used as an assistive technology to complement the evaluation process, the output of the Large Language Model (LLM) is evaluated based on usability, accuracy and consistency. For usability, the criteria is how relevant the output is for the user doing the evaluation, such as, does the LLM provide unnecessary or incorrect suggestions. The accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm}.
+The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is the empirically evaluated artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of a tailored prompt for the problem. The artifact is improved in iterations and each iteration is evaluated empirically.
 
 
 \section{Research methods}
 
-This thesis will use a qualitative method based on an iterative manner of the Design Science methodology \citep{designsciencemethodology, iterativedesignscience}. The main goal of this research is do a literature review to identify a problem in a specific context and attempt to create an artifact as a solution to found problem. The context of this thesis will be to research web accessibility evaluation tools and to identify how Generative AI could assist accessibility evaluators to resolve barriers on the web. 
+This thesis will use a qualitative method based on an iterative manner of the Design Science methodology \citep{designsciencemethodology, iterativedesignscience}. In this research we will conduct a literature review to identify a problem in a specific context and attempt to create an artifact as a solution to found problem. The context of this thesis will be to research web accessibility evaluation tools and methodologies, and to identify how Generative AI could assist accessibility evaluators to resolve barriers on the web. 
 
 <Insert modified figure here from \textcite{iterativedesignscience}>
 
-To identify current limitations for RQ1 a literature review was conducted with focus on web accessibility from a legislative perspective in the EU. Based on findings from chapter \ref{accessibility} the following search string was used in the ACM Digital Library: "accessibility evaluation" OR "evaluation of tools" OR "comparing tools". Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. 
+To identify current limitations for RQ1 a literature review was conducted with focus on web accessibility from a legislative perspective in the EU. Based on findings in Chapter \ref{accessibility} the following search string was used in the ACM Digital Library: "accessibility evaluation" OR "evaluation of tools" OR "comparing tools". Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. 
 
 A total of 150 research articles were found in ACM Digital Library. Found papers were selected based on their title and abstract. An inclusion criteria was used based on if either title or abstract mentioned comparing tools, the EU Directive or the WCAG guidelines. Exclusion criteria was used if the paper title or abstract had mentioned one of the following: specific disability, specific technology, mobile accessibility or the study was conducted in a country. A snowballing method was used to identify the most commonly referred papers that are also used in this thesis as references. Additionally, found researches were searched for individually by name to find relevant literature.
 
-To answer RQ2, the details found in the literature review is used to identify limitations in current accessibility evaluation methodologies. Research goal is to find out if Generative AI could be prompted in a way to recognize accessibility issues in a standardized way using the ACT rules provided by W3C. Methods from \textcite{white2023prompt} on AI prompting will be used. A combination of the persona pattern and template pattern will be used to have the LLM evaluate a success criterion as an accessibility persona while giving a template output that can be parsed and used in the artefact.
-
+To answer RQ2, the details found in the literature review is used to identify limitations in current accessibility evaluation methodologies. Research goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues using the standardized ACT rules provided by W3C. Methods and learnings from \textcite{white2023prompt} on AI prompting will be used. A combination of the persona pattern and template pattern will be used to have the LLM evaluate a success criterion as an accessibility persona while giving a template output that can be parsed if the artefact would be implemented into an accessibility evaluation tool or methodology.
 
 \section{Selected tools and scope}
 
-The Generative AI selected for this thesis is a Large Language Model (LLM) ChatGPT 3.5 by OpenAI. Selection criteria for ChatGPT is based on the popularity of the tool in research and the tool being free to use \citep{ouyang2023llm, white2023prompt}. In this thesis, ChatGPT will be used to test the .... success criterion, as it requires a manual evaluation from an accessibility expert based on context of the page. Additionally, the success criterion has ACT rules provided by the W3C that can be used as test cases for the LLM with a specific prompt.
+The Generative AI selected for this thesis is a Large Language Model (LLM) ChatGPT 3.5 by OpenAI. Selection criteria for ChatGPT is based on the popularity of the tool in research and the tool being free to use \citep{ouyang2023llm, white2023prompt}. In this thesis, ChatGPT will be used to test the 2.4.2 Page Titled success criterion, as it requires a manual evaluation from an accessibility expert based on context of the page. Additionally, the success criterion has ACT rules provided by the W3C that can be used as test cases for the LLM with a specific prompt. 
 
+ChatGPT 3.5 will be prompted through their web page user interface, chat.openai.com, that has training data until January 2022. Each prompt will be opened as a new chat to ensure that the conversation does not affect the outcome.
+
+The 2.4.2 Page Titled success criterion purpose is helpful for users using screen readers to identify the page without the need to delve into the page content \citep{wcag_page_titled}. To meet the success criterion on a web page a descriptive title has to be provided in the HTML source code. 
+
+There are two helpful techniques described in the WCAG documentation for success criterion 2.4.2 to help achieve conformance, H25 and G88. Technique H25 is HTML specific and requires the <title> tag to be in place. The G88 technique is informal on how to provide a descriptive title that should describe the content of the page when read out of context \citep{g88}. To test for this technique, the page has to have a title, the title has to be relevant to the content and the page should be identifiable solely based on the title.
+
+To help accessibility evaluation tool and methodology developers, an ACT rule has been made with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The rule contains examples when it should pass and fail, also there is one inapplicable example. These examples will be the main testing data to find out the accuracy of the artefact prompt.
+
+\section{Evaluation}
+
+As the artefact is aimed to be used as an assistive technology to complement the evaluation process, the output of the Large Language Model (LLM) is evaluated based on generalization and usefulness, accuracy and consistency. 
+
+To evaluate usefulness how relevant the output is for the user doing the evaluation, that is, does the LLM provide unnecessary or incorrect suggestions. The accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm}. Accuracy is evaluated based on pre-defined test cases provided by W3C. In addition, consistency is determined by executing using the same input to evaluate how often it provides identical answer and possible suggestions. Generalization is evaluated for the last iteration to see if the same artefact could be used to check conformance for multiple success criterion.
