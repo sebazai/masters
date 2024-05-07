@@ -13,21 +13,38 @@ The research questions for the thesis are the following:
     \item \textbf{RQ2.} How well does Generative AI assist to address these limitations?
 \end{itemize}
 
-The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is the empirically evaluated artefact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artefact in the form of a tailored prompt for the problem. The artifact is improved in iterations and each iteration is evaluated separately.
+The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is demonstrated and empirically evaluated artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of a tailored prompt for a specific problem. The artifact is planned to be improved in iterations and each iteration is demonstrated and evaluated separately.
 
 \section{Research methods}
 
-This thesis will use a qualitative method based on an iterative manner of the Design Science Research Methodology (DSRM) \citep{designsciencemethodology, iterativedesignscience}. The aim of DSRM is to create an artefact to increase productiveness in an organization. In this thesis we will conduct a thorough literature review to identify the current state web accessibility evaluation tools and methodologies and attempt to create an artefact to increase efficacy of accessibility evaluation. 
+This thesis will use a qualitative method based on an iterative manner of the Design Science Research Methodology (DSRM) \citep{designsciencemethodology, iterativedesignscience}. The aim of DSRM is to identify a problem and create an artifact to increase productiveness. \textcite{iterativedesignscience} presented the DSRM that consists of six phases as shown in Figure \ref{fig:design-science}.
 
-<Insert modified figure here from \textcite{iterativedesignscience}>
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{image.png}
+    \caption{DSRM Iterative Process, modelled from \textcite{iterativedesignscience}}
+    \label{fig:design-science}
+\end{figure}
 
-To identify current limitations for RQ1 a literature review was conducted with focus on web accessibility from a legislative perspective in the EU. Taking into account the groundwork in Chapter \ref{accessibility} the following search string was used in the ACM Digital Library: "accessibility evaluation" OR "evaluation of tools" OR "comparing tools". Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. 
+The process entry can start from any of the first four phases \citep{iterativedesignscience}. In this thesis initiation of the research was problem-centered. With multiple years of experience in web development, web accessibility was something I never really studied. The problem identification and motivation started by asking myself; Why are so many web pages inaccessible even though legislation is moving forward? What needs to be done to make the web more accessible? 
+
+With the questions in mind and very limited knowledge of web accessibility, I conducted a narrative literature review described in Chapter \ref{accessibility} of web accessibility with a legislative perspective in the EU. The review was done by delving into the \textcite{eudirective2016} and documents it referred to. In addition, Google was used to search information on web accessibility.
+
+Phase one and two, the problem identification and objective of solution are conducted as part of the RQ1. RQ2 is answered in the iteration phase, that consists of the Design \& Development, demonstration and evaluation phase.
+
+\section{Problem identification}
+
+Research Question 1 is used to identify and define the objectives of a solution. Taking into account the groundwork in Chapter \ref{accessibility} from the legislative perspective and to answer RQ1 the following search string was used in the ACM Digital Library:
+
+\begin{verbatim}
+"accessibility evaluation" OR "evaluation of tools" OR "comparing tools"
+\end{verbatim}
+
+Filters applied were: Research Article and Publication Date between 2019 - 2024 to find currently relevant publication within the field. 
 
 A total of 150 research articles were found in ACM Digital Library. Found papers were selected based on their title and abstract. An inclusion criteria was used based on if either title or abstract mentioned comparing tools, the EU Directive or the WCAG guidelines. Exclusion criteria was used if the paper title or abstract had mentioned one of the following: specific disability, specific technology, mobile accessibility or the study was conducted in a country. A snowballing method was used to identify the most commonly referred papers that are also used in this thesis as references. Additionally, found researches were searched for individually by name to find relevant literature.
 
-To answer RQ2, the details found in the literature review is used to identify limitations in current accessibility evaluation tools and methodologies. Research goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues using the standardized ACT rules provided by W3C. 
-
-Persona pattern and context manager pattern techniques from \textcite{white2023prompt} on AI prompting will be used when constructing the artefact. A prompt is a set of instructions given to the LLM to ensure specific output. Persona pattern is used to emphasize the context the broad topic of discussion, while the context pattern is used to specify the specific context of the input to take into account. As generalization is important for the artefact \citep{design_science_eval}, techniques of the template pattern is utilized to some extent to ensure that the artefact could be used for multiple success criteria in the WCAG related to context evaluation.
+The solution needs to be useful for web accessibility specialists when they are conducting their accessibility evaluation. As I have utilized Generative AI in my work as a developer, the idea to use Generative AI for web accessibility evaluation formed during the problem identification phase. Additionally, some success criterion are context based and evaluation for conformance depends on the evaluator. The desire is to build a proof of concept for an AI assistant in web accessibility evaluation.
 
 \section{Selected tools and scope}
 
@@ -41,8 +58,13 @@ There are two helpful techniques described in the WCAG documentation for success
 
 To help accessibility evaluation tool and methodology developers, an ACT rule has been made with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass and fail criteria when checking conformance. These examples will be main input that the LLM should evaluate for accessibility. There are seven test cases in total, which of three should pass, three should fail, and one is inapplicable. Inapplicable in this instance is a HTML code snippet that should not contain a title tag. 
 
-\section{Data collection}
+\section{Iteration phase}
 
+The design \& development, demonstration and evaluation phases are used to answer RQ2. Details found in Chapter \ref{accessibility_evaluation} literature review is used to identify limitations in current accessibility evaluation tools and methodologies. Research goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues. 
+
+Persona pattern and context manager pattern techniques from \textcite{white2023prompt} on AI prompting will be used when constructing the artifact. A prompt is a set of instructions given to the LLM to ensure specific output. Persona pattern is used to emphasize the context the broad topic of discussion, while the context pattern is used to specify the specific context of the input to take into account. As generalization is important for the artifact \citep{design_science_eval}, techniques of the template pattern is utilized to some extent to ensure that the artifact could be used for multiple success criteria in the WCAG related to context evaluation.
+
+In DSRM the 
 
 An example code snippet for an ACT rule of a descriptive web page title based on context \citep{act_rule_g88}:
 
@@ -64,9 +86,9 @@ The ACT rule test cases provided by accessibility experts will be used as input 
 
 \section{Evaluation}
 
-Evaluation in DSRM is outcome based \citep{design_science_eval}. The artefact will be evaluated based on generalization at the end of the last iteration. Subsequently, on each iteration, the LLM output will be evaluated based on usefulness, accuracy and consistency. Accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm, power_determinism}.
+Evaluation in DSRM is outcome based \citep{design_science_eval}. The artifact will be evaluated based on generalization at the end of the last iteration. Subsequently, on each iteration, the LLM output will be evaluated based on usefulness, accuracy and consistency. Accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm, power_determinism}.
 
-With help of the template pattern, the generalization of the artefact will be evaluated to see if the artefact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
+With help of the template pattern, the generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
 
 Usefulness describes how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated if it provides useful suggestions on how to improve the title when asked. In failing scenarios the LLM should provide suggestions and in passing scenarios not. Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how well it provides pass or fail (true or false) and inapplicable result for ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy and possible suggestion. 
 
