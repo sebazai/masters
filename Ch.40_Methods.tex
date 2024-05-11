@@ -1,6 +1,6 @@
 \chapter{Research approach\label{methods}}
 
-This chapter will describe the research goal and the methods used. In addition, the selected tools and scope of the research is specified.
+This chapter will describe the research goal, questions and methods used. Additionally, the selected tools and scope of the research is specified. The process and iterations of the artifact are provided in this chapter that is used to collect data to be evaluated. Furthermore, the evaluation process is represented in this chapter.
 
 \section{Research goals}
 
@@ -13,7 +13,7 @@ The research questions for the thesis are the following:
     \item \textbf{RQ2.} How well does Generative AI assist to address these limitations?
 \end{itemize}
 
-The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is demonstrated and empirically evaluated artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of a tailored prompt for a specific problem. The artifact is planned to be improved in iterations and each iteration is demonstrated and evaluated separately.
+The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is the demonstrated and empirically evaluated artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of a prompt. A prompt is set of instructions given to the Generative AI. The artifact is planned to be improved in iterations and each iteration is demonstrated and evaluated separately.
 
 \section{Research methods}
 
@@ -26,11 +26,11 @@ This thesis will use a qualitative method based on an iterative manner of the De
     \label{fig:design-science}
 \end{figure}
 
-The process entry can start from any of the first four phases \citep{iterativedesignscience}. In this thesis initiation of the research was problem-centered. With multiple years of experience in web development, web accessibility was something I never really studied. The problem identification and motivation started by asking myself; Why are so many web pages inaccessible even though legislation is moving forward? What needs to be done to make the web more accessible? 
+Phase one and two, the problem identification and objective of solution, are conducted as part of the RQ1. RQ2 is answered in the iteration phase, that consists of the design \& development, demonstration and evaluation phase.
+
+The process entry can start from any of the first four phases \citep{iterativedesignscience}. In this thesis initiation of the research was problem-centered. With multiple years of experience in web development, web accessibility is a topic I have always neglected. The problem identification and motivation started by asking myself; Why are so many web pages inaccessible even though legislation is moving forward? What needs to be done to make the web more accessible? 
 
 With the questions in mind and very limited knowledge of web accessibility, I conducted a narrative literature review described in Chapter \ref{accessibility} of web accessibility with a legislative perspective in the EU. The review was done by delving into the \textcite{eudirective2016} and documents it referred to. In addition, Google was used to search information on web accessibility.
-
-Phase one and two, the problem identification and objective of solution are conducted as part of the RQ1. RQ2 is answered in the iteration phase, that consists of the Design \& Development, demonstration and evaluation phase.
 
 \section{Problem identification}
 
@@ -56,17 +56,15 @@ The Page Titled success criterion is helpful for users using screen readers to i
 
 There are two helpful techniques described in the WCAG documentation for success criterion 2.4.2 to help achieve conformance, H25 and G88. Technique H25 is HTML specific and requires the <title> tag to be in place. The G88 technique is informal on how to provide a descriptive title that should describe the content of the page \citep{g88}. To test for this technique, the page has to have a title, the title has to be relevant to the content and the page content should be identifiable solely based on the title.
 
-To help accessibility evaluation tool and methodology developers, an ACT rule has been made with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass and fail criteria when checking conformance. These examples will be main input that the LLM should evaluate for accessibility. There are seven test cases in total, which of three should pass, three should fail, and one is inapplicable. Inapplicable in this instance is a HTML code snippet that should not contain a title tag. 
+To help accessibility evaluation tool and methodology developers, an ACT rule has been made with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass and fail criteria when checking conformance. 
 
-\section{Iteration phase}
+\section{Iteration phases}
 
-The design \& development, demonstration and evaluation phases are used to answer RQ2. Details found in Chapter \ref{accessibility_evaluation} literature review is used to identify limitations in current accessibility evaluation tools and methodologies. Research goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues. 
+The design \& development, demonstration and evaluation phases are used to answer RQ2. Details found in Chapter \ref{accessibility_evaluation} literature review is used to identify limitations in current accessibility evaluation tools and methodologies. Goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues. 
 
-Persona pattern and context manager pattern techniques from \textcite{white2023prompt} on AI prompting will be used when constructing the artifact. A prompt is a set of instructions given to the LLM to ensure specific output. Persona pattern is used to emphasize the context the broad topic of discussion, while the context pattern is used to specify the specific context of the input to take into account. As generalization is important for the artifact \citep{design_science_eval}, techniques of the template pattern is utilized to some extent to ensure that the artifact could be used for multiple success criteria in the WCAG related to context evaluation.
+Persona pattern and context manager pattern techniques from \textcite{white2023prompt} on AI prompting will be used when constructing the artifact. A prompt is a set of instructions given to the LLM to ensure specific output. Persona pattern is used to emphasize the topic of discussion, while the context pattern is used to specify the context of the input to take into account. As generalization is important for the artifact \citep{design_science_eval}, techniques of the template pattern is utilized to some extent to ensure that the artifact could be used for multiple success criteria in the WCAG related to context evaluation.
 
-In DSRM the 
-
-An example code snippet for an ACT rule of a descriptive web page title based on context \citep{act_rule_g88}:
+To test the artifact in each iteration, the test cases in \textcite{act_rule_g88} are used and evaluation of output is done using these test cases. An example code snippet for an ACT rule of a descriptive web page title based on context \citep{act_rule_g88}:
 
 \begin{verbatim}
 <html lang="en">
@@ -82,7 +80,35 @@ An example code snippet for an ACT rule of a descriptive web page title based on
 </html>
 \end{verbatim}
 
-The ACT rule test cases provided by accessibility experts will be used as input within the prompt. Additionally, \textcite{act_rule_g88} exceptions and rules for conf
+These examples will be main input that the LLM should evaluate for accessibility. There are seven test cases in total, which of three should pass, three should fail, and one is inapplicable. Inapplicable in this instance is a HTML code snippet that should not contain a title tag. P1, P2 and P3 are annotated as the passed test cases, failures are annotated as F1, F2, F3. As last, the only inapplicable is annotated as I1.
+
+\subsection{Initial iteration}
+
+The design of the first iteration prompt uses the persona and context pattern. The test procedure text in \textcite{g88} is used as base rules. These rules are given in the prompt to specify the context and action for the LLM. In addition, the special case in accessibility support regarding HTML code from \textcite{act_rule_g88} is added to the ruleset. However, as WCAG is technology agnostic, the wording "document" will be changed to "web page" reflecting the style of other rules provided in the prompt. For persona, the "Web accessibility specialist" will be used, as it is a title used by \textcite{web_accessibility_specialist} that is a known accessibility organisation providing certificates in web accessibility.
+
+The initial design of the prompt:
+
+\begin{quote}
+From now on, act as web accessibility specialist. Pay close attention to web accessibility details of any web page that we look at. Provide outputs that a web accessibility specialist would regarding the code.
+
+Your task is to check if the following web page conforms with the 2.4.2 Page Titled success criterion.
+When analysing the following web page, only consider given web accessibility rules.
+
+Within web page:
+
+<Test case web code, for example P1>
+
+Please consider given web accessibility rules:
+
+\begin{enumerate}
+    \item Check that the Web page has a title
+    \item Check that the title is relevant to the content of the Web page.
+    \item Check that the Web page can be identified using the title.
+    \item This rule assumes that browsers only recognize the first title element if multiple title elements are present in the web page. Testing shows that this in general is the case. Therefore the scope of this rule is limited to only checking the first title element in a web page.
+\end{enumerate}
+
+Does the web page conform with given web accessibility rules?
+\end{quote}
 
 \section{Evaluation}
 
