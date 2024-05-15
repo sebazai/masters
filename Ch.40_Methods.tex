@@ -88,7 +88,7 @@ The design of the first iteration prompt uses the persona and context pattern. T
 
 The initial design of the prompt:
 
-\begin{quote}
+\begin{quote}\label{first_iteration}
 From now on, act as web accessibility specialist. Pay close attention to web accessibility details of any web page that we look at. Provide outputs that a web accessibility specialist would regarding the code.
 
 Your task is to check if the following web page conforms with the 2.4.2 Page Titled success criterion.
@@ -96,7 +96,7 @@ When analysing the following web page, only consider given web accessibility rul
 
 Within web page:
 
-<Test case web code, for example P1>
+\textit{<ACT Test case>}
 
 Please consider given web accessibility rules:
 
@@ -116,5 +116,14 @@ Evaluation in DSRM is outcome based \citep{design_science_eval}. The artifact wi
 
 With help of the template pattern, the generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
 
-Usefulness describes how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated if it provides useful suggestions on how to improve the title when asked. In failing scenarios the LLM should provide suggestions and in passing scenarios not. Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how well it provides pass or fail (true or false) and inapplicable result for ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy and possible suggestion. 
+Usefulness describes how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated with following characteristics: 
+
+\begin{itemize}
+    \item provides suggestions for improvement when applicable
+    \item provides reasoning on steps it used to evaluate
+\end{itemize}
+
+However, the artifact will not explicitly ask for improvement, as this evaluation should be done by the evaluator. 
+
+Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how well the LLM provides pass or fail and inapplicable result for ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy. 
 
