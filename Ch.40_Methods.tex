@@ -120,20 +120,20 @@ A second iteration is done based on the perceived problems found when evaluating
 
 To improve accuracy of the output the Zero Shot Chain of Thought prompt method presented by \textcite{kojima2023large} will be used. In addition, the fourth rule, that is actually an accessibility support statement in the WCAG \textcite{act_rule_g88} documents, will be added partially as part of the prompt. The accessibility statement being last appears to affect the outcome for other rules when there are multiple title elements present in the test cases. Moreover, the LLM is explicitly given a task to evaluate the web page based on the 2.4.2 Page Titled success criterion, therefore, the question at the end of the prompt will be removed and the wording "Let's go step by step" demonstrated in \textcite{kojima2023large} will be added to hopefully increase accuracy and consistency.
 
-\section{Evaluation}
+\section{Evaluation metrics}
 
-Evaluation in DSRM is outcome based \citep{design_science_eval}. The artifact will be evaluated based on generalization at the end of the last iteration. Subsequently, on each iteration, the LLM output will be evaluated based on usefulness, accuracy and consistency. Accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm, power_determinism}.
+Evaluation in DSRM is outcome based \citep{design_science_eval}. The output of the LLM is artificially produced text that will be evaluated as an entirety, taking into account the perceived usefulness of the output. Perceived usefulness as an evaluation metric is used in user acceptance of systems \citep{perceived_usefulness}. It is based on a persons subjective opinion on that using the system would enhance the effectiveness and productivity of the persons task. Subsequently, on each iteration, the LLM output will be evaluated accuracy and consistency. Accuracy and consistency of the output needs to be evaluated as current LLM's are non-deterministic \citep{ouyang2023llm, power_determinism}.
 
-With help of the template pattern, the generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
+The artifact will be evaluated based on generalization at the end of the last iteration. The generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
 
-Usefulness describes how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated with following characteristics: 
+The evaluation of usefulness in more detail will consist of how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated with following characteristics: 
 
 \begin{itemize}
     \item provides suggestions for improvement when applicable
-    \item provides reasoning on steps it used to evaluate
+    \item provides logical reasoning on steps it used to evaluate
 \end{itemize}
 
-However, the artifact will not explicitly ask for improvement, as this evaluation should be done by the evaluator. 
+However, the artifact will not explicitly ask for improvement, as this evaluation should be done by the evaluator. The perceived usefulness will be evaluated by the writer.
 
-Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how well the LLM provides pass or fail and inapplicable result for ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy. 
+Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how the LLM determines conformance ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy. 
 

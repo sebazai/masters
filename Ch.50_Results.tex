@@ -12,15 +12,19 @@ Web accessibility evaluation tools helps in conformance reviews by guiding the e
 
 \section{Capabilities of LLM's for Page Titled evaluation}
 
-This section describes and evaluates the outcomes of the artifact. Results are evaluted based on usefulness, accuracy and consistency. Each iteration is analysed in an own subsection.
+This section describes and evaluates the outcomes of the artifact. Results are evaluated based on usefulness, accuracy and consistency. Each iteration is analysed in an own subsection. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}.
 
 \subsection{First iteration results}
 
-In the first iteration, all the ACT test cases for the \textcite{act_rule_g88} were ran. Each test case was in sequences of five in the ChatGPT user interface, see Appendix \ref{appendix:iterations}. Overall, the LLM was capable of evaluating if the title was descriptive. However, problems occurred in failing and inapplicable test cases.
+In most of the test cases, ChatGPT was capable of evaluating if the title was descriptive based on the content of the web page. However, problems occurred in failing and inapplicable test cases. Passing test cases had the best outcome based on evaluation criteria, whereas failing and inapplicable test cases had more variances and evident mistakes.
 
 \subsubsection{Passing test cases}
 
-Most promising results can be seen in the passing test cases P1, P2 and P3. The output has a coherent structure for each test case. When assessing the output in detail, the LLM provides reasoning for each rule in the input. However, the P2 test case's fourth sequence outcome states that the code snippet has only one title element, even though the test case has two. Each final outcome regarding the accessibility evaluation, is described in a short paragraph at the end of the output. All sequences has the same overall outcome, therefore the LLM is consistent when evaluating these passed test cases.
+Most promising results can be seen in the passing test cases P1, P2 and P3. The output has a coherent structure for each test case. When assessing the output in detail, the LLM provides reasoning for each rule in the input. However, the P2 test case's fourth sequence outcome states that the code snippet has only one title element, even though the test case has two.
+
+In the P3 test case, it can be noted that ChatGPT 3.5 is not capable of identifying correctly where the title element is present, and in three out of five sequences it falsefully states that the title element is within the head section of the HTML document, even though it is in the body section. However, this is a minor mistake, as most browsers are able to fix and set the title correctly.
+
+The accuracy regarding the accessibility evaluation is described in a short paragraph at the end of the output for all the test cases. Each test case and its sequences have the same outcome from a contextual perspective, therefore the LLM is consistent when evaluating these passed test cases.
 
 \subsubsection{Failing test cases}
 
@@ -34,13 +38,13 @@ In the fifth sequence of F1, see \ref{F1-1}, the LLM explicitly indicates that t
     The title of the web page is "Apple harvesting season". This title seems relevant to the content of the page, which discusses the harvest timing of clementines, a type of fruit.
 \end{quote}
 
-The first sequence of F1 does not explicitly mention if it conforms or not. A closer look on the answer indicates that the LLM does not understand that the whole context is provided, therefore uncertainty in accuracy is visible. However, the uncertainty is also reflected in the overall description asking for further evaluation. Therefore, the answer is relevant from the evaluators perspective who is using this GenAI assistant when evaluating web pages for conformance.
+The first sequence of F1 does not explicitly mention if it conforms or not. A closer look on the answer indicates that the LLM does not understand that the whole context is provided, therefore uncertainty in accuracy is visible. However, the uncertainty is also reflected in the overall description asking for further evaluation. Therefore, the answer is relevant from the evaluators perspective who is using this GenAI accessibility assistant when evaluating web pages for conformance.
 
 \subsubsection{F2 test case}
 
 The F2 test case seems to be a major problem for the artifact when considering each of the evaluating criteria. Evaluating each output in detail, an irrational behavior is noticeable. The LLM checks that there is a title that is relevant to the content of the page before it should exclude the first title that is not descriptive in this test case according to the fourth rule. This indicates that the scope of the rule could be moved further up to make the four rules in a logical order. However, the test case input talks about \textit{first title element} and looking at the fifth sequence answer: \textit{The rule specifies that browsers generally recognize only the first title element, so it's assumed that "First title is incorrect" would not be considered by browsers, and "Clementine harvesting season" is the effective title.} would indicate that the test case could also be the problem for the LLM if it explicitly drops out the title based on the content, not order. Same characteristics in answer is found in all other except the third sequence.
 
-Due to possible problems described above, the accuracy for this test case is not a sufficient level. However, a closer look at the reasoning behind the rules shows that the usefulness is still valid, as the LLM points out that the second title would be more relevant.
+Due to possible problems described above, the accuracy for this test case is not on a sufficient level. However, a closer look at the reasoning behind the rules shows that the usefulness is still valid, as the LLM points out that the second title would be more relevant.
 
 \subsubsection{F3 test case}
 
@@ -48,4 +52,17 @@ Each answer provides useful suggestion on how to improve the title description a
 
 \subsubsection{Inapplicable test case (I1)}
 
-The inapplicable test case was hard for the LLM to interpret. It was non-consistent and in two sequences it was able to state that the web page lacks a proper title element for the web page. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability for the LLM even though it was able to in two of the sequences.
+The inapplicable test case was the most inaccurate and inconsistent for the LLM. In two sequences it was able to state that the web page lacks a proper title element for the web page, which is the correct outcome. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability for the LLM even though it was able to in two of the sequences.
+
+
+\subsection{Second iteration results}
+
+The second iteration had a significant affect on the outcome. Improvements in accuracy are evident in failing test cases. With the removal of the fourth rule and using it's knowledge as a separate instruction in the artifact, the length of the output decreased, improving the efficiency of the evaluator.
+
+\subsubsection{Passing test cases}
+
+In regards of accuracy, all sequences within the passing test cases was evaluated correctly. Therefore, each test cases sequences were consistent in regards of accuracy. Additionally‚ with changes to the artifact, the P2 test case "Second title is ignored" is not considered in any of the sequences. 
+
+As in the first iteration of the artifact, the LLM still had issues to identify in the P3 test case that the title element is not within the head section. However, as earlier stated, this is a minor flaw that does not affect the results.
+
+\subsubsection{Failing test cases}
