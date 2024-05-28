@@ -44,7 +44,7 @@ Filters applied were: Research Article and Publication Date between 2019 - 2024 
 
 A total of 150 research articles were found in ACM Digital Library. Found papers were selected based on their title and abstract. An inclusion criteria was used based on if either title or abstract mentioned comparing tools, the EU Directive or the WCAG guidelines. Exclusion criteria was used if the paper title or abstract had mentioned one of the following: specific disability, specific technology, mobile accessibility or the study was conducted in a country. A snowballing method was used to identify the most commonly referred papers that are also used in this thesis as references. Additionally, found researches were searched for individually by name to find relevant literature.
 
-The solution needs to be useful for web accessibility specialists when they are conducting their accessibility evaluation. As I have utilized Generative AI in my work as a developer, the idea to use Generative AI for web accessibility evaluation formed during the problem identification phase. Additionally, some success criterion are context based and evaluation for conformance depends on the evaluator. The desire is to build a proof of concept for an AI assistant in web accessibility evaluation.
+The solution needs to be useful for web accessibility specialists when they are conducting their accessibility evaluation. As I have utilized Generative AI in my work as a developer, the idea to use Generative AI for web accessibility evaluation formed during the problem identification phase. Additionally, some success criterion are context based and evaluation for conformance depends on the evaluator. The goal is to build and evaluate a proof of concept for an AI assistant in web accessibility evaluation that could be incorporated into a semi-automated accessibility evaluation tool.
 
 \section{Selected tools and scope}
 
@@ -88,7 +88,7 @@ Inapplicable in this test example is defined that there are no applicable HTML n
 
 \subsection{Initial iteration}
 
-The design of the first iteration prompt uses the persona and context pattern. The test procedure text in \textcite{g88} is used as base rules. These rules are given in the prompt to specify the context and action for the LLM. In addition, the special case in accessibility support regarding HTML code from \textcite{act_rule_g88} is added to the ruleset. However, as WCAG is technology agnostic, the wording "document" will be changed to "web page" reflecting the style of other rules provided in the prompt. For persona, the "Web accessibility specialist" will be used, as it is a title used by \textcite{web_accessibility_specialist} that is a known accessibility organisation providing certificates in web accessibility.
+The design of the first iteration prompt uses the persona and context pattern. The procedures in \textcite{g88} under section "Tests" is used as base rules. These rules are given in the prompt to specify the context and actions for the LLM. The expected result is that all of these three rules are true. In addition, the special case in accessibility support regarding HTML code from \textcite{act_rule_g88} is added to the ruleset. However, as WCAG is technology agnostic, the wording "document" will be changed to "web page" reflecting the style of other rules provided in the prompt. For persona, the "Web accessibility specialist" will be used, as it is a title used by \textcite{web_accessibility_specialist} that is a known accessibility organisation providing certificates in web accessibility.
 
 The initial design of the prompt:
 
@@ -116,9 +116,9 @@ Does the web page conform with given web accessibility rules?
 
 \subsection{Second iteration}
 
-A second iteration is done based on the perceived problems found when evaluating the output of the first version of the artifact. However, test cases will not be changed, even though the outcome indicates that the P2 and F2 test cases with multiple titles stating that \textit{"First title is incorrect"} and \textit{"Second title is ignored"} may have an affect on the outcome.
+A second iteration is done based on the perceived problems found when evaluating the output of the first version of the artifact. However, test cases will not be changed, even though the outcome indicates that the P2 and F2 test cases with multiple titles stating that \textit{"First title is incorrect"} and \textit{"Second title is ignored"} may have an effect on the outcome.
 
-To improve accuracy of the output the Zero Shot Chain of Thought prompt method presented by \textcite{kojima2023large} will be used. In addition, the fourth rule, that is actually an accessibility support statement in the WCAG \textcite{act_rule_g88} documents, will be added partially as part of the prompt. The accessibility statement being last appears to affect the outcome for other rules when there are multiple title elements present in the test cases. Moreover, the LLM is explicitly given a task to evaluate the web page based on the 2.4.2 Page Titled success criterion, therefore, the question at the end of the prompt will be removed and the wording "Let's go step by step" demonstrated in \textcite{kojima2023large} will be added to hopefully increase accuracy and consistency.
+To improve accuracy of the output the Zero Shot Chain of Thought prompt method presented by \textcite{kojima2023large} will be used. In addition, the fourth rule, that is actually an accessibility support statement in the WCAG \textcite{act_rule_g88} document, will be added partially as part of the prompt before the rules. The accessibility statement being last appears to affect the outcome for other rules when there are multiple title elements present in the test cases. Moreover, the LLM is explicitly given a task to evaluate the web page based on the 2.4.2 Page Titled success criterion, therefore the question at the end of the prompt will be removed and the wording "Let's go step by step" demonstrated in \textcite{kojima2023large} will be added to hopefully increase usefulness, accuracy and consistency.
 
 \section{Evaluation metrics}
 
@@ -133,7 +133,7 @@ The evaluation of usefulness in more detail will consist of how relevant and hel
     \item provides logical reasoning on steps it used to evaluate
 \end{itemize}
 
-However, the artifact will not explicitly ask for improvement, as this evaluation should be done by the evaluator. The perceived usefulness will be evaluated by the writer.
+However, the artifact will not explicitly ask for improvement, as final evaluation should be done by the evaluator. The perceived usefulness will be evaluated by the thesis writer.
 
-Accuracy is evaluated based on pre-defined test cases provided by W3C in form of ACT rules. Accuracy is determined based on how the LLM determines conformance ACT rule test cases. In addition, consistency is evaluated by executing the same input and evaluating how often it provides identical answer in form of accuracy. 
+Accuracy is evaluated based on the seven pre-defined test cases provided by W3C in \textcite{act_rule_g88}. An outcome of the overall compliance is expected from the LLM based on the rules provided in the input artifact. A passed outcome means that the test case meets all provided rules, a failed means that it partially meets the rules \citep{act_rule_g88}. In regards of inapplicable test case, the accuracy cannot be determined. In addition, consistency is evaluated by executing the same input and evaluating how often it provides perceivable identical answer in form of accuracy. 
 
