@@ -1,42 +1,42 @@
 \chapter{Results\label{results}}
 
-This chapter presents the results of this thesis. 
+This chapter presents the results and answers the research questions. Section \ref{rq1_result} answers the first research question. In Section \ref{rq2_result} we analyze the outcome of the Generative AI model for each iteration based on our evaluation criteria. In the last section we analyze if the artifact could be generalized to other possible success criterion and ACT rules provided by W3C.
 
-\section{Limitations of web accessibility evaluation tools}
+\section{Limitations of web accessibility evaluation tools\label{rq1_result}}
 
-The literature review done in Chapter \ref{accessibility_evaluation} answers RQ1. In total there are 86 success criteria in the WCAG 2.2. Out of these 86 success criteria, test automation covers reliably (zero false positives) 17 the 86 success criteria in the WCAG 2.2. Using manual evaluation with semi-automated web accessibility evaluation tools increases the coverage and adds to the sufficiency of these 17 found by automation.
+The literature review done in Chapter \ref{accessibility_evaluation} answers RQ1. In total there are 86 success criteria in the WCAG 2.2. Out of these 86 success criteria, test automation covers reliably (zero false positives) 17 of the 86 success criteria in the WCAG 2.2. Using manual evaluation with semi-automated web accessibility evaluation tools increases the coverage and adds to the sufficiency of these 17 found by automation.
 
-Research indicates that the WCAG 2.2 success criteria are hard to interpret correctly by accessibility evaluator tools developers. Papers on Automated AET's show that there is a significant distribution on the amount of found accessibility barriers on the same page. Studies conducted points out that even experts evaluating the same page can end up in different result. Additionally, the transparency of results by AET's to accessibility evaluators even further adds to the complexity of interpreting which success criteria has been sufficiently evaluated.
+Research pinpoints that the WCAG 2.2 success criteria are hard to interpret correctly by accessibility evaluator tools developers. Research papers on Automated AET's show that there is a significant distribution on the amount of found accessibility barriers on the same page. Studies conducted points out that even experts evaluating the same page can end up in different result. Additionally, the transparency of results by AET's to accessibility evaluators even further adds to the complexity of interpreting which success criteria has been sufficiently evaluated.
 
-Web accessibility evaluation tools helps in conformance reviews by guiding the evaluator with wizards to further increase the coverage. However, the outcome of these wizards are subjective to the evaluator. Therefore, expertise matter when using semi-automated AET's.
+Semi-automated web accessibility evaluation tools helps in conformance reviews by guiding the evaluator with wizards to further increase the coverage. However, the outcome of the final evaluation are subjective to the evaluator. To fully conform with some of the success criterion requires knowledge of the context of the web page. Therefore, expertise matter when evaluating web pages using semi-automated AET's.
 
-\section{Capabilities of LLM's for Page Titled evaluation}
+\section{Capabilities of LLM's for Page Titled evaluation\label{rq2_result}}
 
 This section describes and evaluates the outcomes of the artifact. Results are evaluated based on usefulness, accuracy and consistency. Each iteration is analysed in an own subsection. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT (the LLM) user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}.
 
 \subsection{First iteration}
 
-In most of the test cases, the LLM was capable of evaluating if the title was descriptive based on the content of the web page. However, problems occurred in failing and inapplicable test cases. Passing test cases had the best outcome based on our evaluation criteria, whereas failing and inapplicable test cases had more variance in consistency and irrational .
+The LLM was capable of evaluating if the title was descriptive based on the content of the web page. However, problems occurred in failing and inapplicable test cases. Passing test cases had the best outcome based on our evaluation criteria, whereas failing and inapplicable test cases had more variance in consistency and irrational .
 
 \subsubsection{Passed test cases}
 
-Promising results for the GenAI accessibility assistant can be seen in the passing test cases P1, P2 and P3. The output has a coherent structure for each test case. When assessing the output in detail, the LLM provides reasoning for the outcome using each rule in the input. However, the P2 test case's fourth sequence states that the code snippet has only one title element, even though the test case has two. 
+When assessing the output in detail for usefulness, the LLM provides reasoning for each four of the rules in the input. However, there P2 test case's fourth sequence states that the code snippet has only one title element, even though the test case has two. 
 
 In the P3 test case, it can be noted that the LLM is not capable of identifying correctly where the title element is present, and in three out of five sequences it falsely states that the title element is within the head section of the HTML document, even though it is in the body section. However, this is a minor mistake, as most browsers are able to fix and set the title correctly.
 
-The accuracy regarding the accessibility evaluation is described in a short paragraph at the end of the output for all the test cases. Each test case and its sequences have the same outcome from a contextual perspective, therefore the LLM is consistent when evaluating these passed test cases.
+The accuracy regarding the accessibility evaluation is described in a short paragraph at the end of the output for all the test cases. Each test case and its sequences have the same outcome from a contextual perspective, therefore the LLM is accurate and consistent when evaluating these passed test cases.
 
 \subsubsection{Failing test cases}
 
-Inconsistency and inaccuracy is found in the failing test cases F1 and F2. Additionally, there are irrational behavior in same output when it is assessing each rule individually. Furthermore, the length of the answers from the Generative AI are longer then in passed case. In comparison to passing test cases, where the output explicitly states conformance, in failing cases the output tends to provide partial conformance or ambiguity when interpreting the outcome. 
+Inconsistency and inaccuracy is found in the failing test cases F1 and F2 sequences. Additionally, the usefulness is questionable as the reasoning for the outcome has some fallacies. However, the F3 test case sequence outcomes did not have similar problems as in test case F1 and F2.
 
 \subsubsection{F1}
 
 In the fifth sequence of F1, see \ref{F1-1}, the LLM explicitly indicates that the page conforms with the 2.4.2 Page Titled success criterion. In addition, the LLM seems to provide irrational conclusion for the second rule \textit{Check that the title is relevant to the content of the Web page} with an output of:
 
-\begin{quote}
+\blockquote{
     The title of the web page is "Apple harvesting season". This title seems relevant to the content of the page, which discusses the harvest timing of clementines, a type of fruit.
-\end{quote}
+}
 
 The first sequence of F1 does not explicitly mention if it conforms or not. A closer look on the answer indicates that the LLM does not understand that the whole context is provided, therefore uncertainty in accuracy can be understood from the outcome. However, the uncertainty is also reflected in the overall description asking for further evaluation. Therefore, the answer is relevant from the evaluators perspective who is using this GenAI accessibility assistant when evaluating web pages for conformance.
 
@@ -48,11 +48,11 @@ Due to possible problems described above, the accuracy for this test case is not
 
 \subsubsection{F3}
 
-Each answer provides useful suggestion on how to improve the title description and the answers are consistent through each sequence. All other sequences explicitly states partial conformance, scoring well in accuracy, however the chosen words for the first sequence \textit{"Overall, while the web page meets the basic requirement of having a title, it could improve its accessibility by making the title more descriptive and directly relevant to the content..."} is the only one that stands out from these answers. 
+Each answer provides useful suggestion on how to improve the title description and the answers are consistent through each sequence. All other sequences explicitly states partial conformance, although the chosen words for the first sequence \textit{"Overall, while the web page meets the basic requirement of having a title, it could improve its accessibility by making the title more descriptive and directly relevant to the content..."} is the only one that stands out from these answers. Nevertheless, all sequences for the F3 test case are accurate and 
 
 \subsubsection{Inapplicable test case (I1)}
 
-The inapplicable test case was the most inaccurate and inconsistent for the LLM. In two sequences it was able to state that the web page lacks a proper title element for the web page, which is the correct outcome. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability for the LLM even though it was able to in two of the sequences.
+The inapplicable test case was the most inaccurate and inconsistent for the LLM. In two sequences it was able to state that the web page lacks a proper title element for the web page, which is the correct outcome. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability or inapplicability.
 
 
 \subsection{Second iteration}
