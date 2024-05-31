@@ -59,17 +59,19 @@ Throughout all sequences, the answer is consistent and all outcomes accurately s
 
 \subsubsection{Inapplicable test case (I1)}
 
-In only two of the sequences it was able to indicate that the page should not be evaluated as it does not have a proper HTML structure as the title tag is used describe the SVG element. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability or inapplicability. Therefore, the outcome of the sequences that try to evaluate this inapplicable test case is of no use.
+In only two of the sequences it was able to indicate that the page should not be evaluated as it does not have a proper HTML structure as the title tag is used describe the SVG element. On other test sequences it satisfied the success criterion. However, as this is a zero shot prompt there are no examples on how to determine applicability or inapplicability. Therefore, the outcome of the sequences that try to evaluate this inapplicable test case is of limited use if the consistency can not be improved.
 
 \subsection{Second iteration}
 
-The second iteration improvements had a significant affect on the outcome in failing test cases. With the removal of the fourth rule and using it as a separate instruction in the artifact, the usefulness, accuracy and length of the output decreased, possibly improving the efficiency of the evaluator.
+REFACTOR THIS FORWARD
+
+The improvements done in the second iteration for the artifact had a significant affect on the outcome in failing test cases. With the removal of the fourth rule and using it as a separate instruction in the artifact, the usefulness, accuracy and consistency increased.
 
 \subsubsection{Passed test cases}
 
-In regards of accuracy, all sequences within the passing test cases was evaluated correctly. Therefore, each test cases sequences were consistent in regards of accuracy. Additionally‚ with changes to the artifact, the P2 test case "Second title is ignored" is not considered in any of the sequences. 
+In regards of accuracy, all sequences within the passing test cases was evaluated correctly. Therefore, each test cases sequences were consistent in regards of accuracy.
 
-Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM . Therefore, the usefulness of the artifact in these particular test cases would enhance the effectiveness and productivity of evaluating a web page if this artifact would be incorporated into a semi-automated wizard based .As in the first iteration of the artifact, the LLM still had issues to identify in the P3 test case that the title element is not within the head section. As earlier stated in the first iteration results, this is a minor flaw that does not affect the results.
+Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM. Therefore, the artifact and the outcome appears to be useful for the evaluator. As in the first iteration of the artifact, the LLM still had issues to identify in the P3 test case that the title element is not within the head section. As earlier stated, in the first iteration results, that is a minor flaw which does not affect the end result if the descriptive title is within the body tag.
 
 \subsubsection{Failing test cases}
 
@@ -77,12 +79,16 @@ In comparison to first iteration of the artifact, significant improvements in al
 
 \subsubsection{F1}
 
-Each sequence ends up in partial conformance where the first rule check is passed, that is, the web page has a title. In the second sequence there is a difference in the partial conformance, as it states that it conforms with the third rule that the web page can be identified by the title \blockquote{Apple harvesting season} even though the content is about clementines. However, all other sequences have the same logic, that the first rule is met, but the second and third are not.
+Each sequence ends up in partial conformance where the first rule check is passed, that is, the web page has a title. In the second sequence there is a difference in the partial conformance, as it states that it conforms with the third rule that the web page can be identified by the title \blockquote{Apple harvesting season} even though the content is about clementines. However, all other sequences, except the second, have the same logical reasoning where the first rule is met, but the second and third rules are not.
 
 \subsubsection{F2}
 
-The input artifact explicitly states \blockquote{The scope of given web accessibility rules are limited to only checking the first title element in a web page.} the outcome of each sequence in F2 test case states that the second title \blockquote{Clementine harvesting season} would conform to all three given rules. Therefore, the usefulness of this output could be questioned that is this information relevant for the evaluator to know that there is a second title that would conform with the success criterion 2.4.2 Page Titled.
+The input artifact explicitly states the following: \blockquote{The scope of given web accessibility rules are limited to only checking the first title element in a web page.}. However, the outcome of each sequence in F2 test case states that the second title \blockquote{Clementine harvesting season} would conform to all three given rules. Therefore, the usefulness of this output could be questioned if this information is relevant for the evaluator, as the browser recognizes the first title, which in this test case does not conform with all the rule checks.
 
 Additionally, the existence of two titles provides irrelevant conclusion in all of the sequences for the third rule, as the LLM should check if the web page can be identified based on the first found title and states in some of the sequences that the web page could be identified using both of the titles. Only in the last sequence it explicitly states \blockquote{However, the first <title> element "First title is incorrect" is not helpful for identifying the content.}
 
 Based on the perceived understanding of each outcome, overall, in terms of accuracy and consistency, each outcome ends up in partial conformance that is described in the last paragraph of the outcome. However, the LLM neglects the information that it should only be evaluating the first found title, therefore the usefulness of the outcome could be improved.
+
+\subsubsection{F3}
+
+\subsubsection{Inapplicable test case (I1)}
