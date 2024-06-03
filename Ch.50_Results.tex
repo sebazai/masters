@@ -12,7 +12,26 @@ Semi-automated web accessibility evaluation tools helps in conformance reviews b
 
 \section{Capabilities of LLM's for Page Titled evaluation\label{rq2_result}}
 
-This section describes and evaluates the outcomes of the artifact. Results are evaluated based on usefulness, accuracy and consistency. Each iteration is analysed in an own subsection. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT (the LLM) user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}.
+This section describes and evaluates the outcomes of the artifact and answers RQ2. Each iteration is analysed in an own subsection. Iteration results are evaluated more deeply based on usefulness, accuracy and consistency. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT (the LLM) user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}. 
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|cc|cc|cc|cc|cc|cc|cl|}
+\hline
+Test case  & \multicolumn{2}{c|}{P1}    & \multicolumn{2}{c|}{P2}    & \multicolumn{2}{c|}{P3}    & \multicolumn{2}{c|}{F1}    & \multicolumn{2}{c|}{F2}    & \multicolumn{2}{c|}{F3}    & \multicolumn{2}{c|}{I1}    \\ \hline
+Iteration  & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{1} & 2 \\ \hline
+Sequence 1 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} &   \\ \hline
+Sequence 2 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark \\ \hline
+Sequence 3 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark \\ \hline
+Sequence 4 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  &   \\ \hline
+Sequence 5 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  &   \\ \hline
+\end{tabular}
+\caption{Table summarizing the accuracy on how well the LLM evaluated conformance on the test cases for each iteration}
+\label{table:result_summary}
+\end{table}
+
+Overall, the LLM is capable of evaluating the provided test cases correctly. In both iterations of the artifact the passing test cases were the most consistent, accurate and useful. The LLM had issues evaluating the F1 and F2 in the first iteration. However, the second iteration showed improvements for the failing test cases F1 and F2 in regards of accuracy and consistency, see Table \ref{table:result_summary}. However, in both iterations of the artifact, the inapplicable test case results were hard to evaluate as inapplicability had no example in the input, nor was it described in detail. Additionally, there were no improvement for inapplicability in the second iteration.
+
 
 \subsection{First iteration}
 
@@ -42,7 +61,6 @@ In the fifth sequence the LLM explicitly indicates that the page conforms with t
 
 \blockquote{The title of the web page is "Apple harvesting season". This title seems relevant to the content of the page, which discusses the harvest timing of clementines, a type of fruit.}
 
-
 \subsubsection{F2}
 
 The test case with two titles, where the first one is incorrect and second one is correct causes issues to the conclusions made by the LLM. In regards of accuracy, the LLM states conformance in three out of the five sequences. Therefore, three out of five fail to provide accurate conformance review as this is a test case that has partial conformance.
@@ -63,15 +81,13 @@ In only two of the sequences it was able to indicate that the page should not be
 
 \subsection{Second iteration}
 
-REFACTOR THIS FORWARD
-
 The improvements done in the second iteration for the artifact had a significant affect on the outcome in failing test cases. With the removal of the fourth rule and using it as a separate instruction in the artifact, the usefulness, accuracy and consistency increased.
 
 \subsubsection{Passed test cases}
 
 In regards of accuracy, all sequences within the passing test cases was evaluated correctly. Therefore, each test cases sequences were consistent in regards of accuracy.
 
-Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM. Therefore, the artifact and the outcome appears to be useful for the evaluator. As in the first iteration of the artifact, the LLM still had issues to identify in the P3 test case that the title element is not within the head section. As earlier stated, in the first iteration results, that is a minor flaw which does not affect the end result if the descriptive title is within the body tag.
+Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM. Therefore, the artifact and the outcome appears to be useful for the evaluator. As in the first iteration of the artifact, the LLM still had issues to identify in the P3 test case that the title element is not within the head section. As earlier stated, in the first iteration results, this is a minor flaw which does not affect the end result when the descriptive title is within the body tag.
 
 \subsubsection{Failing test cases}
 
@@ -79,16 +95,20 @@ In comparison to first iteration of the artifact, significant improvements in al
 
 \subsubsection{F1}
 
-Each sequence ends up in partial conformance where the first rule check is passed, that is, the web page has a title. In the second sequence there is a difference in the partial conformance, as it states that it conforms with the third rule that the web page can be identified by the title \blockquote{Apple harvesting season} even though the content is about clementines. However, all other sequences, except the second, have the same logical reasoning where the first rule is met, but the second and third rules are not.
+Each sequence ends up in partial conformance where the first rule check is passed, that is, the web page has a title. In the second sequence there is a difference in the partial conformance, as it states that it conforms with the third rule that the web page can be identified by the title \blockquote{Apple harvesting season} even though the content is about clementines. However, all, except the second sequences, have the same logical reasoning where the first rule is met that the page has a title, but the title is not descriptive or can not be used to identify the page. Therefore, not complying with second and third rule.
 
 \subsubsection{F2}
 
 The input artifact explicitly states the following: \blockquote{The scope of given web accessibility rules are limited to only checking the first title element in a web page.}. However, the outcome of each sequence in F2 test case states that the second title \blockquote{Clementine harvesting season} would conform to all three given rules. Therefore, the usefulness of this output could be questioned if this information is relevant for the evaluator, as the browser recognizes the first title, which in this test case does not conform with all the rule checks.
 
-Additionally, the existence of two titles provides irrelevant conclusion in all of the sequences for the third rule, as the LLM should check if the web page can be identified based on the first found title and states in some of the sequences that the web page could be identified using both of the titles. Only in the last sequence it explicitly states \blockquote{However, the first <title> element "First title is incorrect" is not helpful for identifying the content.}
+Additionally, the existence of two titles provides irrelevant conclusion in all of the sequences in the third rule where the LLM is checking if the page is identifiable based on the title. The LLM should check if the web page can be identified based on the first found title and states in some of the sequences that the web page could be identified using both of the titles. Only in the last sequence it explicitly states \blockquote{However, the first <title> element "First title is incorrect" is not helpful for identifying the content.}
 
-Based on the perceived understanding of each outcome, overall, in terms of accuracy and consistency, each outcome ends up in partial conformance that is described in the last paragraph of the outcome. However, the LLM neglects the information that it should only be evaluating the first found title, therefore the usefulness of the outcome could be improved.
+Based on the perceived understanding of each outcome, overall, in terms of accuracy and consistency, each outcome ends up in partial conformance that is described in the last paragraph of each outcome. However, the LLM neglects the information that it should only be evaluating the first found title, therefore the usefulness of the outcome could be improved.
 
 \subsubsection{F3}
 
+A direct quote from one of the sequences summarizes the results very well: \blockquote{Overall, while the page meets the first criterion by having a title, it falls short of the other two criteria as the title isn't directly relevant to the content and may not effectively identify the page.}. Therefore, consistency and accuracy is spot on. Additionally, on each sequence, the reasoning for the outcome is similar and the LLM suggests either explicitly or implicitly a more descriptive title for the test case.
+
 \subsubsection{Inapplicable test case (I1)}
+
+Only the second and third sequence indicates successful evaluation for inapplicability as there is no title element for the whole web page, rather the title element is for the SVG element. For example the first check that the web page has a title is evaluated in the following way: \blockquote{The web page contains a <title> element within the <svg> tag. However, the <title> element is intended for providing a title for the SVG graphic for accessibility purposes, not for the entire web page}. 
