@@ -1,1 +1,28 @@
 \chapter{Discussion\label{discussion}}
+
+This chapter summarizes the main findings and presents the implications and limitations of the study. The goal of this study was to test and see if Large Language Models could be utilized for web accessibility evaluation. The research questions for the thesis were:
+
+\begin{itemize}
+    \item \textbf{RQ1.} What are the limitations of web accessibility evaluation tools in assessing compliance with Web Content Accessibility Guidelines (WCAG)?
+    \item \textbf{RQ2.} How well does Generative AI assist to address these limitations?
+\end{itemize}
+
+A semi-systematic literature review answered the current limitations of web accessibility evaluation tools. Test automation covers 17 out of the 86 success criteria in the WCAG 2.2. However, test automation tools are not capable of thorough evaluation for some of these 17 success criteria. 
+
+Sufficiently evaluating conformance requires an accessibility specialists evaluation which is a tedious process, as web pages are more complicated than ever. Semi-automated accessibility evaluation tools help evaluators by guiding them through the most common accessibility barriers found on web pages. However, evaluating for a success criterion requiring interpretation of content can end up in a different outcome depending on evaluators point of view.
+
+Generative AI can be utilised to address these limitations. Large Language Models have the capability to assist evaluators on evaluating conformance for success criteria that require interpretation of content. On pages with longer content, the automatic context analysing by LLM's could potentially decrease the overall time for conformance reviews. However, with zero shot prompting, LLM's are not capable of determine when it should evaluate a web page for conformance.
+
+This study shows the importance of thorough understanding of all involved counterparts in web accessibility evaluation. An accessibility specialist need to have knowledge and interpretation skills of the WCAG documents, what success criteria a tool checks for and how reliable the tool is. An accessibility evaluation tool developer has to understand the ACT rules and sufficient techniques used to check for conformance, as well as how browsers work, to develop a reliable and robust tool for accessibility evaluators.
+
+
+\section{Prompt iteration}
+
+With rigorous prompt iteration the outcome of the LLM can be improved. Evaluating the outcome of each iteration can show patterns where the LLM fails giving possible directions of improvements. Additionally, 
+
+
+\section{Limitations}
+
+- Evaluation of usefulness solely based on one persons perspective
+
+- Not tested with other

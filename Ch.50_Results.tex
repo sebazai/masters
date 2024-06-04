@@ -111,4 +111,18 @@ A direct quote from one of the sequences summarizes the results very well: \bloc
 
 \subsubsection{Inapplicable test case (I1)}
 
-Only the second and third sequence indicates successful evaluation for inapplicability as there is no title element for the whole web page, rather the title element is for the SVG element. For example the first check that the web page has a title is evaluated in the following way: \blockquote{The web page contains a <title> element within the <svg> tag. However, the <title> element is intended for providing a title for the SVG graphic for accessibility purposes, not for the entire web page}. 
+Only the second and third sequence indicates successful evaluation for inapplicability as there is no title element for the whole web page, rather the title element is for the SVG element. For example the first check that the web page has a title is evaluated in the following way: \blockquote{The web page contains a <title> element within the <svg> tag. However, the <title> element is intended for providing a title for the SVG graphic for accessibility purposes, not for the entire web page}.
+
+
+\subsection{Generalization}
+
+In Design Science Research Methodologies, the generalization of the artifact is important. Generalization is evaluated on how well the artifact works in other similar contexts \citep{design_science_eval}. This section evaluates the possibility to use the artefact for other conformance checking techniques provided in the WCAG documents.
+
+In its current form, the possibility to use the artifact for other ACT rule is limited, because the input prompt is  tailored to test if the web page title is descriptive. The artifact is a proof of concept on how LLM evaluates accessibility using the technique provided by \textcite{g88}, and modified accessibility support information from \textcite{act_rule_g88}. 
+
+By incorporating the input prompt in a semi-automated accessibility evaluation tool, placeholders in the input prompt could be utilized, therefore possibly improving the generalization of the artifact. However, the artifact is the code for the LLM, and a small change can have a significant change in the quality of the output, demonstrated even in this study. Therefore, placeholders, choice of words and small changes in the input prompt requires thorough testing and evaluation.
+
+Furthermore, currently the artifact is not tied to any specific accessibility evaluation tool. The input artifact could be used by any organization and in other Large Language Models, as the input prompt was the artifact iterated upon.
+
+Overall, in the current form the artifact is the artifact has potential to be used in other contexts, but this would require further iterations and rigorous evaluation.
+

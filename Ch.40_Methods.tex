@@ -34,7 +34,7 @@ With the questions in mind and very limited knowledge of web accessibility, I co
 
 \section{Problem identification}
 
-Research Question 1 is used to identify a problem and define the scope of the artifact. A more systematic approach for the literature review was used to figure out the current state of web accessibility evaluation methodologies and tools. The ACM Digital Library is chosen as the main source as they have a journal on Human-computer Interaction and is a reputable source in the field of computer science. Taking into account the groundwork in Chapter \ref{accessibility} from the legislative perspective, to answer RQ1 the following simple search string was used in the ACM Digital Library:
+Research Question 1 is used to identify a problem and define the scope of the artifact. A semi-systematic approach for the literature review was used to figure out the current state of web accessibility evaluation methodologies and tools. The ACM Digital Library is chosen as the main source as they have a journal on Human-computer Interaction and is a reputable source in the field of computer science. Taking into account the groundwork in Chapter \ref{accessibility} from the legislative perspective, to answer RQ1 the following simple search string was used in the ACM Digital Library:
 
 \begin{verbatim}
 "accessibility evaluation"
@@ -129,13 +129,13 @@ To improve accuracy of the output the Zero Shot Chain of Thought prompt method p
 
 Evaluation in DSRM is outcome based \citep{design_science_eval}. The output of the LLM is artificially produced text that will be evaluated as an entirety, taking into account the perceived usefulness of the output. Perceived usefulness as an evaluation metric is used in user acceptance of systems \citep{perceived_usefulness}. It is based on a persons subjective opinion on that using the system would enhance the effectiveness and productivity of the persons task. Subsequently, on each iteration, the LLM output will be evaluated accuracy and consistency. Accuracy and consistency of the output needs to be evaluated as LLM's are non-deterministic \citep{ouyang2023llm, power_determinism}.
 
-The artifact will be evaluated based on generalization at the end of the last iteration. The generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
+The artifact will be evaluated based on generalization at the end of the last iteration in Chapter \ref{results}. The generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context based success criteria. For example, currently proposed ACT rules "Heading descriptive" or "Link descriptive".
 
-In more detail, the evaluation of usefulness will consist of how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated with following characteristics: 
+The evaluation of usefulness will consist of how relevant and helpful the output is to the user. To evaluate usefulness, the output of the LLM will be evaluated with following characteristics: 
 
 \begin{itemize}
     \item provides suggestions for improvement when applicable either implicitly or explicitly
-    \item provides logical reasoning for the rules the LLM used to evaluate the overall conformance
+    \item provides logical reasoning for the rules the LLM used to evaluate the conformance
 \end{itemize}
 
 However, the artifact will not explicitly ask for improvement, as final evaluation should be done by the evaluator. The perceived usefulness will be evaluated by the thesis writer.
