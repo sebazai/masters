@@ -61,9 +61,16 @@
 
 \usepackage{lmodern}         % Font package, again in some systems.
 \usepackage{textcomp}        % Package for special symbols
+%\usepackage{subcaption}
+%\usepackage{graphicx}
 \usepackage[pdftex]{color, graphicx} % For pdf output and jpg/png graphics
 \usepackage{epsfig}
+
+%\usepackage{graphicx}
 \usepackage{subfigure}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
 \usepackage[pdftex, plainpages=false]{hyperref} % For hyperlinks and pdf metadata
 \usepackage{fancyhdr}        % For nicer page headers
 \usepackage{tikz}            % For making vector graphics (hard to learn but powerful)
@@ -74,6 +81,8 @@
 \useunder{\uline}{\ul}{} % For table
 \usepackage{multirow} % For table
 \usepackage{adjustbox} % For table
+\usepackage{listings} % For code listing
+\lstset{language=HTML, basicstyle=\footnotesize, breaklines=true, tabsize=1}
 
 \usepackage{pifont}  % For check marks
 \newcommand{\cmark}{\ding{51}}  % For check marks
@@ -83,10 +92,10 @@
 \fussy
 %\sloppy                      % sloppy and fussy commands can be used to avoid overlong text lines
 % if you want to see which lines are too long or have too little stuff, comment out the following lines
-% \overfullrule=1mm
+\overfullrule=1mm
 % to see more info in the detailed log about under/overfull boxes...
-% \showboxbreadth=50 
-% \showboxdepth=50
+\showboxbreadth=50 
+\showboxdepth=50
 
 
 

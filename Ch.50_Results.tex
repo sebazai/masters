@@ -12,10 +12,14 @@ Semi-automated web accessibility evaluation tools helps in conformance reviews b
 
 \section{Capabilities of LLM's for Page Titled evaluation\label{rq2_result}}
 
-This section describes and evaluates the outcomes of the artifact and answers RQ2. Each iteration is analysed in an own subsection. Iteration results are evaluated more deeply based on usefulness, accuracy and consistency. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT (the LLM) user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}. 
+This section describes the outcomes of the artifact and answers RQ2. The solution for the problem had to be useful for web accessibility evaluators when they are conducting their accessibility evaluation. As there are Generative AI assistant tools for other area of work or study, such as code generation for developers, these tools originally formed an idea to test if Generative AI could be used in web accessibility evaluation similarly. Some of the success criteria have context based evaluation metrics, such as 2.4.2 Page Titled success criterion. The goal was to build and evaluate a proof of concept of an AI assistant in web accessibility evaluation that could be incorporated into a semi-automated accessibility evaluation tool.
+
+Each iteration is analysed in an own subsection. Iteration results are evaluated more deeply based on usefulness, accuracy and consistency. For each iteration, the \textcite{act_rule_g88} ACT test cases are used. Each test case were executed in sequences of five using the ChatGPT (the LLM) user interface ensuring the ChatGPT 3.5, see Appendix \ref{appendix:iterations}. 
 
 \begin{table}[]
 \centering
+\caption{Table summarizing the accuracy on how well the LLM evaluated conformance on the test cases for each iteration}
+\label{table:result_summary}
 \begin{tabular}{|l|cc|cc|cc|cc|cc|cc|cl|}
 \hline
 Test case  & \multicolumn{2}{c|}{P1}    & \multicolumn{2}{c|}{P2}    & \multicolumn{2}{c|}{P3}    & \multicolumn{2}{c|}{F1}    & \multicolumn{2}{c|}{F2}    & \multicolumn{2}{c|}{F3}    & \multicolumn{2}{c|}{I1}    \\ \hline
@@ -26,16 +30,14 @@ Sequence 3 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} 
 Sequence 4 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  &   \\ \hline
 Sequence 5 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{}  & \cmark & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{}  &   \\ \hline
 \end{tabular}
-\caption{Table summarizing the accuracy on how well the LLM evaluated conformance on the test cases for each iteration}
-\label{table:result_summary}
 \end{table}
 
-Overall, the LLM is capable of evaluating the provided test cases correctly. In both iterations of the artifact the passing test cases were the most consistent, accurate and useful. The LLM had issues evaluating the F1 and F2 in the first iteration. However, the second iteration showed improvements for the failing test cases F1 and F2 in regards of accuracy and consistency, see Table \ref{table:result_summary}. However, in both iterations of the artifact, the inapplicable test case results were hard to evaluate as inapplicability had no example in the input, nor was it described in detail. Additionally, there were no improvement for inapplicability in the second iteration.
+Overall, the LLM is capable of evaluating the provided test cases correctly. In both iterations of the artifact the passing test cases were the most consistent, accurate and useful. The LLM had issues evaluating the test cases F1 and F2 in the first iteration. However, the second iteration showed improvements for the failing test cases F1 and F2 in regards of accuracy and consistency, see Table \ref{table:result_summary}. However, in both iterations of the artifact, the inapplicable test case results were hard to evaluate as inapplicability had no example in the input, nor was it described in detail. Additionally, there were no improvement for inapplicability in the second iteration.
 
 
 \subsection{First iteration}
 
-The LLM was capable of evaluating if the title was descriptive based on the content of the web page. However, problems occurred in failing and inapplicable test cases. Passing test cases had a better outcome based on our evaluation criteria, whereas failing and inapplicable test cases had variance in consistency and fallacies in reasoning.
+The LLM was capable of evaluating if the title was descriptive based on the content of the web page. However, problems occurred in failing and inapplicable test cases. Passing test cases had a successful outcome based on our evaluation criteria, whereas failing and inapplicable test cases had variance in consistency and fallacies in reasoning.
 
 \subsubsection{Passed test cases}
 
@@ -120,7 +122,7 @@ In Design Science Research Methodologies, the generalization of the artifact is 
 
 In its current form, the possibility to use the artifact for other ACT rule is limited, because the input prompt is  tailored to test if the web page title is descriptive. The artifact is a proof of concept on how LLM evaluates accessibility using the technique provided by \textcite{g88}, and modified accessibility support information from \textcite{act_rule_g88}. 
 
-By incorporating the input prompt in a semi-automated accessibility evaluation tool, placeholders in the input prompt could be utilized, therefore possibly improving the generalization of the artifact. However, the artifact is the code for the LLM, and a small change can have a significant change in the quality of the output, demonstrated even in this study. Therefore, placeholders, choice of words and small changes in the input prompt requires thorough testing and evaluation.
+By incorporating the input prompt in a semi-automated accessibility evaluation tool, a placeholders in the input prompt could be utilized, therefore possibly improving the generalization of the artifact. However, the artifact is the code for the LLM, and a small change can have a significant change in the quality of the output, demonstrated even in this study. Therefore, placeholders, choice of words and small changes in the input prompt requires thorough testing and evaluation.
 
 Furthermore, currently the artifact is not tied to any specific accessibility evaluation tool. The input artifact could be used by any organization and in other Large Language Models, as the input prompt was the artifact iterated upon.
 
