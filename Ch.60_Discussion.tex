@@ -1,10 +1,10 @@
 \chapter{Discussion\label{discussion}}
 
-This chapter contains a discussion of the study, implications, limitations and potential future research. Section 6.1 is a summary for the research questions. Section 6.2 a discussion on the study result and implications are presented. Section 6.3 presents threats to validity of the study. Section 6.4 promotes potential future research.
+This chapter contains a discussion of the study, implications, limitations, and potential future research. Section 6.1 is a summary of the research questions. Section 6.2 a discussion on the study result and implications are presented. Section 6.3 presents threats to the validity of the study. Section 6.4 promotes potential future research.
 
 \section{Summary of main findings}
 
-Below is a recap of the research questions and summary of the answers.
+Below is a recap of the research questions and a summary of the answers.
 
 \begin{itemize}
     \item \textbf{RQ1.} What are the limitations of web accessibility evaluation tools in assessing compliance with Web Content Accessibility Guidelines (WCAG)?
@@ -12,32 +12,31 @@ Below is a recap of the research questions and summary of the answers.
 
     A semi-systematic literature review answered the current limitations of web accessibility evaluation tools. Test automation covers 17 out of the 86 success criteria in the WCAG 2.2. However, test automation tools are not capable of thorough evaluation for some of these 17 success criteria. 
 
-    Sufficiently evaluating conformance requires an accessibility specialists evaluation which is a tedious process, as web pages are more complicated than ever. Semi-automated accessibility evaluation tools help evaluators by guiding them through the most common accessibility barriers found on web pages. However, evaluating for a success criterion requiring interpretation of content, can end up in a different outcome depending on evaluators point of view.
+    Sufficiently evaluating conformance requires an accessibility specialist evaluation which is a tedious process, as web pages are more complicated than ever. Semi-automated accessibility evaluation tools help evaluators by guiding them through the most common accessibility barriers found on web pages. However, evaluating for a success criterion requiring interpretation of content can end up in a different outcome depending on the evaluators' point of view.
     
 \begin{itemize}
-    \item \textbf{RQ2.} How does Generative AI assist to address these limitations?
+    \item \textbf{RQ2.} How does Generative AI assist in addressing these limitations?
 \end{itemize}
 
-    Generative AI can be utilised to address these limitations. Large Language Models have the capability to assist evaluators in conformance checks that require interpretation of content. On pages with longer content, the automatic context analysing by LLM's could potentially decrease the overall time for conformance reviews. However, with zero shot prompting, LLM's are not capable of reliably determine inapplicability.
+    Generative AI can be utilized to address these limitations. Large Language Models can assist evaluators in conformance checks that require interpretation of content. On pages with longer content, the automatic context analysis by LLMs could potentially decrease the overall time for conformance reviews. However, with zero-shot prompting, LLMs are not capable of reliably determining inapplicability.
 
 \section{Study result analysis}
 
-This study shows that even though legislation is moving forward in regards of accessibility, the nature of accessibility and accessibility evaluation is complex, and requires expertise from designers, developers, quality assurance and accessibility reviewers. An accessibility specialist need to have thorough knowledge of the WCAG documents, as no accessibility evaluation tool has a 100\% coverage. In addition, web developers, designers and content creators ought to study the same WCAG documents. 
+This study shows that even though legislation is moving forward in regards to accessibility, the nature of accessibility and accessibility evaluation is complex, and requires expertise from designers, developers, quality assurance, and accessibility reviewers. An accessibility specialist needs to have a thorough knowledge of the WCAG documents, as no accessibility evaluation tool has 100\% coverage. In addition, web developers, designers, and content creators ought to study the same WCAG documents. 
 
-An accessibility evaluation tool developer has to understand the ACT rules and sufficient techniques used to check for conformance, as well as how browsers work, to develop a reliable and robust tool for accessibility evaluators. Transparency of evaluation tools helps the evaluator understand which success criteria it covers and to what extent. Large Language Models could be utilized to improve the coverage of automated accessibility checks by creating a check specific prompt.
+An accessibility evaluation tool developer has to understand the ACT rules and sufficient techniques used to check for conformance, as well as how browsers work, to develop a reliable and robust tool for accessibility evaluators. Transparency of evaluation tools helps the evaluator understand which success criteria it covers and to what extent. Large Language Models could be utilized to improve the coverage of automated accessibility checks by creating a check-specific prompt.
 
 \subsection{Prompt iteration}
 
-With rigorous prompt iteration the accuracy and quality of the outcome can be improved. By evaluating the outcome of the LLM, patterns can be detected where the LLM fails to provide rational reasoning for checks it performed, giving possible directions of improvements. These patterns can be for example the order of the checks the LLM performs. Therefore, an imperative approach of how the LLM should operate step by step, in a similar manner as a human would do the checks, improves the quality of the outcome. 
+With rigorous prompt iteration, the accuracy and quality of the outcome can be improved. By evaluating the outcome of the LLM, patterns can be detected where the LLM fails to provide rational reasoning for checks it performed, giving possible directions for improvements. These patterns can be for example the order of the checks the LLM performs. Therefore, an imperative approach to how the LLM should operate step by step, in a similar manner as a human would do the checks, improves the quality of the outcome. 
 
 
 \section{Limitations}
 
-One major concern of the validity for this study is the perceived usefulness evaluation method in the study. The evaluation of usefulness is solely based on the empirical findings of the thesis writer. The artifact is a proof of concept and has not been evaluated by accessibility evaluators for usefulness in a real accessibility evaluation environment. Therefore, a proof of suitability is yet to be evaluated that would support the findings of the study.
+One major concern of the validity of this study is the perceived usefulness evaluation method in the study. The evaluation of usefulness is solely based on the empirical findings of the thesis writer. The artifact is a proof of concept and has not been evaluated by accessibility evaluators for usefulness in a real accessibility evaluation environment. Therefore, a proof of suitability is yet to be evaluated that would support the findings of the study.
 
-Concerns regarding the chose LLM, is that this study was solely done using the ChatGPT 3.5 user interface due to it being free to use and that the LLM is a closed source tool. Therefore, between the iterations, there is no knowledge if the there has been any improvements made by OpenAI to the language model. However, according to OpenAI, the ChatGPT 3.5 model was trained only with data available in early 2022 \citep{openai_35}. Therefore, it can be assumed that the test cases available at \textcite{act_rule_g88} should not be part of the LLM used. Additionally, the replication of this study is challenging, as no date-fixed version of the model was used. In addition, ChatGPT 3.5 might become obsolete and a more accurate alternative might evolve that is free to use or a LLM trained for accessibility evaluation evolves. In September 2024, the ChatGPT 3.5 is not anymore the default model provided within their user interface.
+Concerns regarding the chosen LLM are that this study was solely done using the ChatGPT 3.5 user interface due to it being free to use and that the LLM is a closed-source tool. Therefore, between the iterations, there is no knowledge if there have been any improvements made by OpenAI to the language model. However, according to OpenAI, the ChatGPT 3.5 model was trained only with data available in early 2022 \citep{openai_35}. Therefore, it can be assumed that the test cases available at \textcite{act_rule_g88} should not be part of the LLM used. Additionally, the replication of this study is challenging, as no date-fixed version of the model was used. In addition, ChatGPT 3.5 might become obsolete and a more accurate alternative might evolve that is free to use or a LLM trained for accessibility evaluation evolves. In September 2024, the ChatGPT 3.5 is no longer the default model provided within their user interface.
 
-Additionally, the characters of LLM's, such as non-deterministic output given same input, or the limited amount of characters that you can input, is a threat to the external validity of the study. This study was conducted using very short code snippets, therefore no input limits were hit. However, a better design could reduce the input limitation threat. For example, in this study setting, parsing the HTML code, picking the first title element encountered and the content within the HTML body or main tag would significantly reduce the amount of characters sent to the LLM. In addition, the non-deterministic behaviour would cause problems if your accessibility evaluation tool promises zero false positives when evaluating for accessibility.
+Additionally, the characteristics of LLMs, such as non-deterministic output given the same input, or the limited amount of characters that you can input, are a threat to the external validity of the study. This study was conducted using very short code snippets, therefore no input limits were hit. However, a better design could reduce the input limitation threat. For example, in this study setting, parsing the HTML code, picking the first title element encountered, and the content within the HTML body or main tag would significantly reduce the number of characters sent to the LLM. In addition, the non-deterministic behavior would cause problems if your accessibility evaluation tool promises zero false positives when evaluating for accessibility.
 
 \section{Further research}
-
