@@ -13,7 +13,7 @@ The research questions for the thesis are the following:
     \item \textbf{RQ2.} How does Generative AI assist in addressing these limitations?
 \end{itemize}
 
-The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming a tailored prompt that is the demonstrated, and empirically evaluated, artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of an input prompt. A prompt is a set of instructions given to the Large Language Model (LLM) to generate an output. The artifact is planned to be improved in iterations. For each iteration, the artifact is demonstrated in use and evaluated accordingly.
+The primary goal is to evaluate the capabilities of Generative AI in the scope of web accessibility evaluation, forming an input prompt, that is the demonstrated and empirically evaluated artifact in this study. Research Question 1 (RQ1) pinpoints relevant challenges within web accessibility evaluation. Subsequently, to answer Research Question 2 (RQ2) we create an artifact in the form of an input prompt. A prompt is a set of instructions given to the Large Language Model (LLM) to generate an output. The artifact is planned to be improved in iterations. For each iteration, the artifact is demonstrated in use and evaluated accordingly.
 
 \section{Research methods}
 
@@ -28,9 +28,9 @@ This thesis will use a qualitative research method that is based on an iterative
 
 Phase 1 and Phase 2, the problem identification and objective of the solution, are conducted as part of the RQ1. RQ2 is answered in the Process Iteration cycle, which consists of the design \& development, demonstration, and evaluation phases. Phase 6 are presented in the Result and Discussion chapters.
 
-The process entry can start from any of the first four phases \citep{iterativedesignscience}. In this thesis initiation of the research was problem-centered. The problem identification and motivation started by asking; Why are so many websites inaccessible even though legislation is moving forward? What needs to be done to make the web more accessible? 
+The process entry can start from any of the first four phases \citep{iterativedesignscience}. In this study the initiation of the research is problem-centered. The problem identification and motivation started by asking; Why are so many websites inaccessible even though legislation is moving forward? What needs to be done to make the web more accessible? 
 
-With the questions in mind and very limited knowledge of web accessibility, I conducted a multivocal literature review described in Chapter \ref{accessibility} of web accessibility from a legislative perspective in the EU. The review was done by delving into the \textcite{eudirective2016} and documents it referred to. In addition, Google was used to search for information on web accessibility.
+With these questions in mind and very limited knowledge of web accessibility, a multivocal literature review was conducted in Chapter \ref{accessibility} from a legislative perspective in the EU. The review was done by delving into the \textcite{eudirective2016} and documents it referred to. In addition, Google was used to search for information on web accessibility.
 
 \section{Problem identification}
 
@@ -54,7 +54,7 @@ The Page Titled success criterion is helpful for users using screen readers to i
 
 There are two helpful techniques described in the WCAG documentation for success criterion 2.4.2 to help achieve conformance, H25 and G88. Technique H25 is HTML-specific and requires the <title> tag to be in place. The G88 technique is informal on how to provide a descriptive title that should describe the content of the page \citep{g88}. To test for this technique, the page has to have a title, the title has to be relevant to the content and the page content should be identifiable solely based on the title.
 
-To help accessibility evaluation tools and methodology developers, an ACT rule has been created with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass, fail, and inapplicable criteria when checking conformance. There are in total seven examples of ACT test cases provided by WCAG, of which three should pass, three should fail and one is inapplicable.
+To help accessibility evaluation tools and methodology developers, an ACT rule has been created with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass, fail, and inapplicable criteria when checking conformance. There are in total seven examples of ACT cases provided by WCAG, of which three should pass, three should fail and one is inapplicable.
 
 \begin{figure}[htbp]
 \caption{Passed test cases P1, P2 and P3 copied from \textcite{act_rule_g88}}
@@ -167,7 +167,7 @@ Inapplicable I1, see Figure \ref{inapplicable_case}, test example is defined tha
 
 \section{Iteration phases}
 
-The design \& development, demonstration, and evaluation phases are used to answer RQ2. Details found in Chapter \ref{accessibility_evaluation} multivocal literature review are used to identify limitations in current accessibility evaluation tools and methodologies. The goal is to find out if Generative AI could be prompted in a way that could recognize accessibility issues. 
+The design \& development, demonstration, and evaluation phases are used to answer RQ2. Details found in Chapter \ref{accessibility_evaluation} are used to identify limitations in current accessibility evaluation tools and methodologies. The goal is to find out if the LLM could be prompted in a way that could recognize accessibility issues. 
 
 As a basis for the prompt, a Zero-Shot prompting method will be used. Zero-shot prompting means that no task-specific examples are provided within the prompt that would guide the LLM on how to accomplish the task correctly, instead the instructions are given manually in the input prompt \citep{kojima2023large}.
 
@@ -175,14 +175,14 @@ As a basis, the persona pattern and context manager pattern techniques from \tex
 
 \subsection{Initial iteration}
 
-The design of the first iteration prompt uses the persona and context pattern. The procedures in \textcite{g88} under the section "Tests" are used as base rules. These rules are given in the prompt to specify the context and actions for the LLM. The expected result is that all of these three rules are fulfilled in each of the ACT test cases. In addition, the assumption of the first title element being the one recognized by browsers in HTML code by \textcite{act_rule_g88}, is added to the ruleset as a fourth condition to check for.
+The design of the first iteration prompt uses the persona and context pattern. The procedures in \textcite{g88} under the section "Tests" are used as base rules. These rules are given in the prompt to specify the context and actions for the LLM. The expected result is that all of these three rules are fulfilled in each of the ACT cases. In addition, the assumption of the first title element being the one recognized by browsers in HTML code by \textcite{act_rule_g88}, is added to the ruleset as a fourth condition to check for.
 
 As WCAG is technology agnostic \citep{wcag22}, the wording "document" will be changed to "web page" reflecting the style of other rules provided in the prompt. In the persona pattern, a descriptive title is required to be provided to the LLM. Therefore, the "Web accessibility specialist" will be used to set the persona for the LLM, as it is a title used by \textcite{web_accessibility_specialist} which is a known accessibility organization providing certificates in web accessibility. The first iteration of the prompt is shown in Figure \ref{first_iteration}.
 
 
 \subsection{Second iteration}
 
-A second iteration, see Figure \ref{second_iteration}, is done based on the perceived problems found when evaluating the output of the first version of the artifact. However, test cases will not be changed, even though the outcome indicates that the P2 and F2 test cases with multiple titles stating that \textit{"First title is incorrect"} and \textit{"Second title is ignored"} may affect the outcome.
+A second iteration, see Figure \ref{second_iteration}, is done based on the perceived problems found when evaluating the output of the first version of the artifact. However, ACT cases will not be changed, even though the outcome indicates that the P2 and F2 test cases with multiple titles stating that \textit{"First title is incorrect"} and \textit{"Second title is ignored"} may affect the outcome.
 
 To improve the accuracy of the output the Zero Shot Chain of Thought prompt method presented by \textcite{kojima2023large} will be used. As the fourth conditional rule that guides the LLM to pick the first title element encountered in the HTML code appeared to affect the conformance outcome of the F2 test case, therefore the fourth rule is shortened and added as a separate sentence before the three main ACT rules for the success criterion. Moreover, the LLM is explicitly given a task to evaluate the web page based on the 2.4.2 Page Titled Success Criterion and given specific instructions for this, therefore the question at the end of the prompt will be removed and the wording "Let's go step by step" demonstrated in \textcite{kojima2023large} will be added the aim to increase the usefulness, accuracy, and consistency.
 
@@ -208,15 +208,15 @@ Evaluation in DSRM is outcome-based \citep{design_science_eval}. The output of t
 
 The artifact will be evaluated based on generalization at the end of the last iteration in Chapter \ref{results}. The generalization of the artifact will be evaluated to see if the artifact could be utilized for other ACT rules that evaluate similar context-based success criteria. For example, currently proposed ACT rules are "Heading descriptive" or "Link descriptive".
 
-The evaluation of usefulness will consist of how relevant and helpful the output is to the user. To evaluate the usefulness, the output of the LLM will be evaluated with the following characteristics: 
+The evaluation of perceived usefulness will consist of how relevant and helpful the output is to the user. The output of the LLM will be evaluated with the following characteristics: 
 
 \begin{itemize}
-    \item provides suggestions for improvement when applicable
-    \item assesses whether the LLM textual output accurately reflects the web page alignment with the rules provided
+    \item provides suggestions for improvement when applicable (F1, F2 and F3 test cases)
+    \item assesses whether the LLM output accurately reflects the test case with the rules provided
 \end{itemize}
 
-However, the instructions provided to the LLM will not explicitly ask for improvements in accessibility as the final evaluation should be done by the evaluator. The perceived usefulness will be evaluated by the thesis writer.
+Instructions provided to the LLM will not explicitly ask for improvements in accessibility as the final evaluation for conformance should be done by the evaluator. The perceived usefulness will be evaluated by the thesis writer.
 
-Accuracy is evaluated based on the seven pre-defined test cases provided by W3C in \textcite{act_rule_g88}. An outcome of the overall compliance is expected from the LLM based on the rules provided in the input artifact. A passed outcome means that the LLM meets all provided rules and a failed means that it partially meets the rules \citep{act_rule_g88}. In regards to the inapplicable test case, the accuracy cannot be determined. 
+Accuracy is evaluated based on the seven pre-defined test cases provided by W3C in \textcite{act_rule_g88}. An outcome of the overall compliance is expected from the LLM based on the rules provided in the input artifact. A passed outcome means that the LLM meets all provided rules and a failed means that it partially meets the rules \citep{act_rule_g88}. In regards to the inapplicable test case, the accuracy can not be determined. 
 
 In addition, consistency is evaluated by executing the same input and evaluating how often it provides perceivable identical answers in the form of overall accuracy. In other words, the output text states conformance with the success criterion in some form. 
