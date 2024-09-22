@@ -1,22 +1,22 @@
 \chapter{Results\label{results}}
 
-This chapter presents the results and answers the research questions. Section \ref{rq1_result} answers the first research question. In Section \ref{rq2_result} the outcome of the LLM is analyzed for each iteration based on the evaluation criteria. In the last section, the artifact is studied from the perspective if it could be used in other possible success criteria and ACT rules provided by W3C.
+This chapter presents the results and answers the research questions. Section \ref{rq1_result} answers the first research question. In Section \ref{rq2_result} the outcome of the LLM is analyzed for each iteration based on the evaluation criteria. In the last section, the artifact is studied from the perspective of how it could be used in other possible success criteria and ACT rules provided by W3C.
 
 \section{Limitations of web accessibility evaluation tools\label{rq1_result}}
 
 The literature review done in Chapter \ref{accessibility_evaluation} answers RQ1. In total, there are 86 success criteria in the WCAG 2.2 documents. Out of these 86 success criteria, test automation covers only 17 reliably (zero false positives). Using manual evaluation with semi-automated web accessibility evaluation tools increases the coverage, and adds to the sufficiency of these 17 found by automation \citep{dequecoverage_semi}.
 
-Papers on Automated AETs show that there is a significant distribution of the amount of found accessibility barriers on the same page \citep{comparison_10.1145/3371300.3383346, tool_analysis_directive}. Studies conducted point out that even experts evaluating the same page can end up with different results \citep{10.1145/1878803.1878813_testability_expertise}. Additionally, the transparency of results by AETs to accessibility evaluators even further adds to the complexity of interpreting which success criteria have been sufficiently evaluated.
+Research on Automated AETs shows that there is a significant distribution of the amount of found accessibility barriers on the same page \citep{comparison_10.1145/3371300.3383346, tool_analysis_directive}. Studies conducted point out that even experts evaluating the same page can end up with different results \citep{10.1145/1878803.1878813_testability_expertise}. Additionally, the transparency of results by AETs to accessibility evaluators even further adds to the complexity of interpreting which success criteria have been sufficiently evaluated.
 
 Semi-automated web accessibility evaluation tools help in conformance evaluation by guiding the evaluator with wizards to further increase coverage \citep{dequecoverage_semi}. However, the outcome of the final evaluation is subjective to the evaluator \citep{10.1145/1878803.1878813_testability_expertise}. To fully conform with some of the success criteria requires knowledge of the context of the web page. Therefore, expertise matters when evaluating web pages for conformance using semi-automated AETs.
 
 \section{Capabilities of LLM's for Page Titled evaluation\label{rq2_result}}
 
-This section describes the outcomes of the artifact and answers RQ2. Some of the success criteria have context-based evaluation metrics, such as 2.4.2 Page Titled success criterion. The results show that Large Language Model is capable of assisting in a conformance evaluation when evaluating the context based success criterion 2.4.2 Page Titled. However, a more detailed look on how it ended up with the correct outcome shows discrepancy.
+This section describes the outcomes of the artifact and answers RQ2. Some of the success criteria have context-based evaluation metrics, such as 2.4.2 Page Titled success criterion. The results show that the Large Language Model is capable of assisting in a conformance evaluation when evaluating the context-based success criterion 2.4.2 Page Titled. However, a more detailed look at how it ended up with the correct outcome shows a discrepancy.
 
 \begin{table}[]
 \centering
-\caption{Table summarizing the overall result whether the LLM succeeded in the conformance evaluation.}
+\caption{Table summarizing the overall result of whether the LLM succeeded in the conformance evaluation.}
 \label{table:result_summary}
 \begin{tabular}{|l|cc|cc|cc|cc|cc|cc|cl|}
 \hline
@@ -30,13 +30,13 @@ Sequence 5 & \multicolumn{1}{c|}{\cmark} & \cmark & \multicolumn{1}{c|}{\cmark} 
 \end{tabular}
 \end{table}
 
-In both iterations of the artifact, the passing test cases P1, P2 and P3 were the most consistent, accurate, and useful. The LLM did not suggest any improvements for the ACT passing test cases, as each sequence was correctly evaluated and already had a descriptive title present. 
+In both iterations of the artifact, the passing test cases P1, P2, and P3 were the most consistent, accurate, and useful. The LLM did not suggest any improvements for the ACT passing test cases, as each sequence was correctly evaluated and already had a descriptive title present. 
 
 The LLM had issues evaluating the test cases F1 and F2 in the first iteration. The second iteration outcome showed improvements in the conformance evaluation, see Table \ref{table:result_summary}. However, even though the second iteration explicitly states partial conformance for the F1 and F2 test cases in the outcome, how the LLM ended up to this conclusion had fallacies. In both iterations, out of the 30 sequences, there were only two output sequences (F1-1-1 and F1-1-5) that did not suggest an improved title for the page. The F3 test case did not cause major problems for the LLM.
 
 In both iterations of the artifact, only two inapplicable sequences were evaluated correctly, therefore the evaluation outcome can not be relied upon.
 
-Each iteration is analyzed in its own subsection in more detail. Iteration results are evaluated more deeply based on usefulness, accuracy, and consistency. See Appendix \ref{appendix:iterations} for actual outputs.
+Each iteration is analyzed in its subsection in more detail. Iteration results are evaluated more deeply based on usefulness, accuracy, and consistency. See Appendix \ref{appendix:iterations} for actual outputs.
 
 \subsection{First iteration}
 
@@ -56,9 +56,9 @@ Inconsistency and inaccuracy are observed in the failing test cases F1 and F2 se
 
 \subsubsection{F1}
 
-F1-1-2, F1-1-3, and F1-1-4 have the correct outcome where the LLM states partial conformance. Additionally, those sequences that succeed in evaluating conformance correctly also provide suggestions for improvement. 
+F1-1-2, F1-1-3 and F1-1-4 have the correct outcome where the LLM states partial conformance. Additionally, those sequences that succeed in evaluating conformance correctly also provide suggestions for improvement. 
 
-The first sequence (F1-1-1) has problems to understand that the whole web page code is provided. In the outcome, there is no mention of clementines being the correct context of the page. Additionally, the same uncertainty of what the LLM is evaluating can be understood from the last paragraph which seems to state conformance:
+The first sequence (F1-1-1) has problems understanding that the whole web page code is provided. In the outcome, there is no mention of clementines being the correct context of the page. Additionally, the same uncertainty of what the LLM is evaluating can be understood from the last paragraph which seems to state conformance:
 
 \blockquote{Overall, based on the provided HTML code and the given web accessibility rules, the web page appears to conform with the criteria. However, further evaluation within the context of the entire website and user experience might be necessary for a comprehensive assessment.}
 
@@ -68,13 +68,13 @@ In the fifth sequence (F1-1-5), the LLM explicitly indicates that the page confo
 
 \subsubsection{F2}
 
-The F2 test case with two titles, see Figure \ref{failing_cases}, where the first one is incorrect and the second one is correct causes issues to the conformance evaluation made by the LLM. In regards to accuracy, the LLM states conformance in three out of the five sequences. Therefore, three out of five fail to provide an accurate conformance evaluation as F2 is a test case that has partial conformance.
+The F2 test case with two titles, see Figure \ref{failing_cases}, where the first one is incorrect and the second one is correct causes issues with the conformance evaluation made by the LLM. In regards to accuracy, the LLM states conformance in three out of the five sequences. Therefore, three out of five fail to provide an accurate conformance evaluation as F2 is a test case that has partial conformance.
 
-A closer look at the three not correctly evaluated test sequences indicates that the existence of two titles on the web page code, and the fourth rule pointing out to use the first encountered title causes problems for reasoning, see Figure \ref{first_iteration} for the four rules. The LLM finds the second title on the web page and uses it to evaluate conformance for the first three rules. This ordering of rules causes problems to the LLM, indicating that the scope of the fourth rule is not in a logical order.
+A closer look at the three not correctly evaluated test sequences indicates that the existence of two titles on the web page code, and the fourth rule pointing out to use the first encountered title causes problems for reasoning, see Figure \ref{first_iteration} for the four rules. The LLM finds the second title on the web page and uses it to evaluate conformance for the first three rules. This ordering of rules causes problems for the LLM, indicating that the scope of the fourth rule is not in a logical order.
 
-Below is an example from F2-1-4 output from the LLM on the fourth rule reasoning, which is similar in all three not correctly evaluated cases (F2-1-1, F2-1-4 and F2-1-5): \blockquote{Since browsers typically recognize only the first title element, and in this case, the relevant title is the second one, it aligns with the rule.}. The LLM evaluated the conformance using the second title even thought the rule explicitly said to do the evaluation based on the first title found in the HTML code.
+Below is an example from F2-1-4 output from the LLM on the fourth rule reasoning, which is similar in all three not correctly evaluated cases (F2-1-1, F2-1-4, and F2-1-5): \blockquote{Since browsers typically recognize only the first title element, and in this case, the relevant title is the second one, it aligns with the rule.}. The LLM evaluated the conformance using the second title even though the rule explicitly said to do the evaluation based on the first title found in the HTML code.
 
-Due to the possible problems described above, the accuracy for this test case is not on a sufficient level, nor the consistency. Therefore, the output that the LLM provided for evaluating conformance has fallacies. However, in each sequence the LLM points out that the second title would be more relevant.
+Due to the possible problems described above, the accuracy for this test case is not on a sufficient level, nor the consistency. Therefore, the output that the LLM provided for evaluating conformance has fallacies. However, in each sequence, the LLM points out that the second title would be more relevant.
 
 \subsubsection{F3}
 
@@ -92,9 +92,9 @@ The improvements done in the second iteration of the artifact had a significant 
 
 \subsubsection{Passed test cases}
 
-In regards to accuracy, all sequences within the passing test cases were evaluated correctly. Therefore, each test case sequence was consistent in regard to accuracy.
+In regards to accuracy, all sequences within the passing test cases were evaluated correctly. Therefore, each test case sequence was consistent regarding accuracy.
 
-Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM. Therefore, the artifact and the outcome is useful for the evaluator. As in the first iteration of the artifact, the LLM still had issues identifying in the P3 test case that the title element is not within the head section. As earlier stated in the first iteration results, this is a minor flaw that does not affect the result when the descriptive title is within the body tag.
+Logical reasoning in each outcome on how it evaluated conformance is provided by the LLM. Therefore, the artifact and the outcome are useful for the evaluator. As in the first iteration of the artifact, the LLM still had issues identifying in the P3 test case that the title element is not within the head section. As earlier stated in the first iteration results, this is a minor flaw that does not affect the result when the descriptive title is within the body tag.
 
 \subsubsection{Failing test cases}
 
@@ -102,13 +102,13 @@ In comparison to the first iteration of the artifact, significant improvements i
 
 \subsubsection{F1}
 
-Each of the five sequence ends up in partial conformance. Partial conformance is based on the first rule passing, that is, the web page has a title. One sequence (F1-2-2) stood out in the results, where there is a difference to the other sequences. The F1-2-2 states that it conforms with the third rule where it should check that the web page can be identified by the title \blockquote{Apple harvesting season}, even though the content is about clementines. However, all except the second sequence (F1-2-2) have similar contextual output, where the first rule is met, but the second and third rule fails, ending up in partial conformance.
+Each of the five sequences ends up in partial conformance. Partial conformance is based on the first rule passing, that is, the web page has a title. One sequence (F1-2-2) stood out in the results, where there is a difference from the other sequences. The F1-2-2 states that it conforms with the third rule where it should check that the web page can be identified by the title \blockquote{Apple harvesting season}, even though the content is about clementines. However, all except the second sequence (F1-2-2) have similar contextual output, where the first rule is met, but the second and third rule fails, ending up in partial conformance.
 
 \subsubsection{F2}
 
-The expected result is that the partial conformance should come out of the second and third condition to check for, as the first title is not relevant to the page content and the title does not identify the web page. 
+The expected result is that partial conformance should come out of the second and third conditions to check for, as the first title is not relevant to the page content and the title does not identify the web page. 
 
-The input artifact explicitly states the following: \blockquote{The scope of given web accessibility rules are limited to only checking the first title element in a web page.}. However, within each of the outcome the LLM has used second title \blockquote{Clementine harvesting season} in assessing conformance. However, all of them end up in partial conformance due to either second or third condition is evaluated based on the first title found. Additionally, it can be observed that the second title is always mentioned as a better option for the page title from the LLM output detail of the third rule.
+The input artifact explicitly states the following: \blockquote{The scope of given web accessibility rules are limited to only checking the first title element in a web page.}. However, within each of the outcomes, the LLM has used the second title \blockquote{Clementine harvesting season} in assessing conformance. However, all of them end up in partial conformance due to either the second or third condition being evaluated based on the first title found. Additionally, it can be observed that the second title is always mentioned as a better option for the page title from the LLM output detail of the third rule.
 
 Overall, in terms of accuracy and consistency, each outcome states partial conformance that is described in the last paragraph of each outcome. However, the LLM neglects the information that it should only be evaluating the first found title.
 
@@ -130,4 +130,4 @@ By incorporating the input prompt in a semi-automated accessibility evaluation t
 
 Furthermore, currently, the artifact is not tied to any specific accessibility evaluation tool. The input artifact could be used by any organization and in other Large Language Models, as the input prompt was the artifact iterated upon.
 
-To conclude the generalization, the artifact has potential to be used in other contexts, as the rules could be easily swapped with other ACT rules for other success criteria, and the custom sentence on picking the first title found could be an additional placeholder.
+To conclude the generalization, the artifact has the potential to be used in other contexts, as the rules could be easily swapped with other ACT rules for other success criteria, and the custom sentence on picking the first title found could be an additional placeholder.
