@@ -1,11 +1,3 @@
-#  Thesis templates
-## University of Helsinki, Faculty of Science, Department of Computer Science
+#  Capabilities of Large Language Models in Web Accessibility Evaluation: A Design Science Approach
 
-This template is maintained on the repository https://version.helsinki.fi/cs/thesis-template.
-
-If you want to make or suggest changes to the template, then notify first the CSM board at csm-templates@helsinki.fi.
-
-*Note (2021.08.26):* All instructions for the use of templates will gradually be moved from this repository to the webpages of the BSc or MSc programs. The repository will be used only for the maintenance of the template.
-
-* MSc Students: For your MSc thesis, refer to the [MSc Thesis webpage](https://courses.helsinki.fi/en/csm11005/) for instructions.
-* BSc Students: For your BSc thesis, find basic instructions [here](https://version.helsinki.fi/cs/thesis-template/-/blob/92ea603516d9e2d3899b76b9132017d6230357f7/instructions/bsc-instructions.md).
+Web accessibility is an issue on many websites, hindering people with disabilities to perceive information on the web. Accessibility evaluation based on existing accessibility guidelines helps to find the barriers that affect these users. A comprehensive accessibility conformance review requires manual labor. However, Accessibility Evaluation Tools (AET) help find the most common accessibility barriers. This thesis explores the potential of Large Language Models (LLM) in evaluating the Web Content Accessibility Guideline (WCAG) success criterion 2.4.2, Page Titled, using pre-made HTML test cases provided by the WCAG Accessibility Conformance Testing rules. Utilizing a Design Science Research method, the input prompt is iterated to evaluate whether the LLM can accurately assess if the HTML code contains a title, whether the title describes the page content, and whether the title identifies the page. The findings reveal that the LLM can perform these evaluations, suggesting that it can be used as an assistant in conformance reviews, potentially speeding up the conformance review process and reducing the need to understand the website's subject matter. However, the study acknowledges the simplicity of the test cases and the non-deterministic nature of LLMs. Future research on LLMs evaluating web accessibility should address language diversity. In addition, implementing LLMs into AETs would provide insight into how LLMs affect the efficiency of the accessibility evaluation process and the capabilities of LLMs on more complex websites.
