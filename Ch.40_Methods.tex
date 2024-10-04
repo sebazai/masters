@@ -57,8 +57,6 @@ There are two helpful techniques described in the WCAG documentation for success
 To help accessibility evaluation tools and methodology developers, an ACT rule has been created with examples on how to evaluate if a page title is descriptive \citep{act_rule_g88}. The ACT rule contains test cases on how tools should interpret pass, fail, and inapplicable criteria when checking conformance. There are in total seven examples of ACT cases provided by WCAG, of which three should pass, three should fail and one is inapplicable.
 
 \begin{figure}[htbp]
-\caption{Passed test cases P1, P2 and P3 copied from \textcite{act_rule_g88}}
-\label{passed_cases}
 \begin{tabular}{|p{4.9cm}|p{4.9cm}|p{4.9cm}|}
 P1 & P2 & P3 \\
 \begin{lstlisting}
@@ -92,14 +90,14 @@ P1 & P2 & P3 \\
 </html>
 \end{lstlisting}
 \end{tabular}
+\caption{Passed test cases P1, P2 and P3 copied from \textcite{act_rule_g88}}
+\label{passed_cases}
 \end{figure}
 
 Passed test cases are referred to as P1, P2, and P3, as shown in Figure \ref{passed_cases}. P1 should pass as the title describes the content of the web page. P2 takes into account the assumption that web browsers only pick the first title element the browser encounters. P3 also assumes that the browser can parse the erroneous placement of the title element within the body \citep{act_rule_g88}.
 
 
 \begin{figure}[htbp]
-\caption{Failed test cases F1, F2 and F3 copied from \textcite{act_rule_g88}}
-\label{failing_cases}
 \begin{tabular}{|p{4.9cm}|p{4.9cm}|p{4.9cm}|}
 F1 & F2 & F3 \\
 \begin{lstlisting}
@@ -139,13 +137,13 @@ F1 & F2 & F3 \\
 </html>
 \end{lstlisting}
 \end{tabular}
+\caption{Failed test cases F1, F2 and F3 copied from \textcite{act_rule_g88}}
+\label{failing_cases}
 \end{figure}
 
 Failing test cases are F1, F2, and F3, as shown in Figure \ref{failing_cases}. The F1 test case title does not describe the content of the page. In the F2 test case, the first title is incorrect, but the second is correct. However, as browsers typically use the first title element found, the test should fail. The title in F3 is too generic and does not describe the content of the page \citep{act_rule_g88}.
 
 \begin{figure}
-\caption{Inapplicable test case I1 copied from \textcite{act_rule_g88}}
-\label{inapplicable_case}
 \begin{tabular}{|p{4.9cm}|}
  I1 \\
  \begin{lstlisting}
@@ -160,6 +158,8 @@ Failing test cases are F1, F2, and F3, as shown in Figure \ref{failing_cases}. T
 </html>
 \end{lstlisting}
 \end{tabular}
+\caption{Inapplicable test case I1 copied from \textcite{act_rule_g88}}
+\label{inapplicable_case}
 \end{figure}
 
 Inapplicable I1, see Figure \ref{inapplicable_case}, test example is defined that there are no applicable HTML nodes that contain a title element for the page. The title element is part of a Scalable Vector Graphic (SVG) and provides an accessible name for the SVG rather than the whole web page.
